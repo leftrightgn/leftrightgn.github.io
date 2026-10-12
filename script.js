@@ -412,9 +412,12 @@ function setLanguage(lang) {
         }
     });
 
-    const marqueeEl = document.getElementById('marquee-text');
-    if (marqueeEl && dict.marquee) {
-        marqueeEl.innerHTML = dict.marquee.map(item => `<span>${item}</span> <span>*</span>`).join(' ');
+    const marqueeEls = document.querySelectorAll('.marquee-content');
+    if (marqueeEls.length && dict.marquee) {
+        const marqueeHtml = dict.marquee.map(item => `<span>${item}</span> <span>*</span>`).join(' ');
+        marqueeEls.forEach(el => {
+            el.innerHTML = marqueeHtml;
+        });
     }
 
     CONFIG.learningTopics = dict.learningTopics || CONFIG.learningTopics;
