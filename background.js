@@ -232,6 +232,8 @@ let scrollVelocity = 0;
 let lastScrollY = window.scrollY;
 let lastScrollTime = performance.now();
 
+let isTouchActive = false;
+
 // 1. Mouse Tracking (PC)
 window.addEventListener('mousemove', (e) => {
     inputX = (e.clientX / window.innerWidth) * 2 - 1;
@@ -240,6 +242,7 @@ window.addEventListener('mousemove', (e) => {
 
 // 2. Touch Tracking (Smartphones & Tablets)
 window.addEventListener('touchstart', (e) => {
+    isTouchActive = true;
     if (e.touches.length > 0) {
         const touch = e.touches[0];
         inputX = (touch.clientX / window.innerWidth) * 2 - 1;
@@ -248,11 +251,16 @@ window.addEventListener('touchstart', (e) => {
 }, { passive: true });
 
 window.addEventListener('touchmove', (e) => {
+    isTouchActive = true;
     if (e.touches.length > 0) {
         const touch = e.touches[0];
         inputX = (touch.clientX / window.innerWidth) * 2 - 1;
         inputY = -(touch.clientY / window.innerHeight) * 2 + 1;
     }
+}, { passive: true });
+
+window.addEventListener('touchend', () => {
+    isTouchActive = false;
 }, { passive: true });
 
 // 3. Gyroscope / Device Orientation (Phone Tilt)
@@ -262,7 +270,7 @@ function handleOrientation(e) {
         gyroActive = true;
         // gamma: left-to-right tilt in degrees [-90, 90]
         const clampedGamma = Math.max(-30, Math.min(30, e.gamma));
-        // beta: front-to-back tilt in degrees, typical viewing angle is ~45deg
+        // beta: front-to-back tilt in degrees, centered around natural 45deg viewing angle
         const clampedBeta = Math.max(-30, Math.min(30, e.beta - 45));
 
         gyroX = clampedGamma / 30; // -1 to 1
@@ -270,7 +278,7 @@ function handleOrientation(e) {
     }
 }
 
-// Global hook to request iOS / mobile gyro permission on first touch
+// Global hook to request iOS / mobile gyro permission on direct user gesture
 window.initBackgroundGyro = function() {
     if (gyroActive) return;
     if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
@@ -291,8 +299,12 @@ if (typeof window.DeviceOrientationEvent !== 'undefined' && typeof DeviceOrienta
     window.addEventListener('deviceorientation', handleOrientation, { passive: true });
 }
 
-// Also trigger on first interaction anywhere
-window.addEventListener('touchstart', () => {
+// iOS Safari requires user gesture (click or touchend) to request gyro permission
+window.addEventListener('click', () => {
+    if (window.initBackgroundGyro) window.initBackgroundGyro();
+}, { once: true, passive: true });
+
+window.addEventListener('touchend', () => {
     if (window.initBackgroundGyro) window.initBackgroundGyro();
 }, { once: true, passive: true });
 
@@ -342,22 +354,32 @@ function animate() {
     // Decay scroll kinetic velocity smoothly
     scrollVelocity *= 0.93;
 
+    // Decay touch swipe inertia when released
+    if (!isTouchActive) {
+        inputX *= 0.94;
+        inputY *= 0.94;
+    }
+
     if (!CONFIG.reducedMotion) {
-        // Blend touch/mouse input with gyroscope tilt
-        const blendedX = inputX * 0.7 + gyroX * 0.6;
-        const blendedY = inputY * 0.7 + gyroY * 0.6;
+        const isMobile = isMobileScreen();
+        // Give mobile devices strong, tangible gyroscope depth
+        const gyroGainX = isMobile ? 3.0 : 1.2;
+        const gyroGainY = isMobile ? 2.2 : 1.0;
+
+        const blendedX = inputX * 0.8 + (gyroX * gyroGainX);
+        const blendedY = inputY * 0.8 + (gyroY * gyroGainY);
 
         // Smooth camera follow with damping
-        currentCamX += (blendedX * 1.8 - currentCamX) * 0.06;
-        currentCamY += (targetCameraY + blendedY * 0.9 - currentCamY) * 0.06;
+        currentCamX += (blendedX * 2.2 - currentCamX) * 0.08;
+        currentCamY += (targetCameraY + blendedY * 1.5 - currentCamY) * 0.08;
 
         camera.position.x = currentCamX;
         camera.position.y = currentCamY;
 
         // Kinetic camera tilt on scroll and device orientation
-        camera.rotation.x = -scrollVelocity * 0.012 + (blendedY * 0.035);
-        camera.rotation.y = -blendedX * 0.045;
-        camera.rotation.z = blendedX * 0.015;
+        camera.rotation.x = -scrollVelocity * 0.015 + (blendedY * 0.06);
+        camera.rotation.y = -blendedX * 0.07;
+        camera.rotation.z = blendedX * 0.025;
 
         grid.position.y = camera.position.y - 12;
     }

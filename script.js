@@ -10,7 +10,7 @@ import * as THREE from 'three';
 const CONFIG = {
     learningTopics: ['shaders', 'fantasy lore', 'ECS', 'game mechanics', 'IK', 'worldbuilding', 'C++'],
     tickerSpeed: 2000,
-    reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    reducedMotion: false // Keep animations active across all devices
 };
 
 /* --- BILINGUAL CONTENT (ENGLISH & JAPANESE) --- */
@@ -589,7 +589,7 @@ if (window.matchMedia('(pointer: fine)').matches && !CONFIG.reducedMotion) {
         }
     });
 
-    // Magnetic buttons
+    // Magnetic buttons (Desktop Mouse Tracking)
     document.querySelectorAll('.magnetic').forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
             if(currentMode === 'locked') return; // Disable wobble in locked mode
@@ -602,6 +602,56 @@ if (window.matchMedia('(pointer: fine)').matches && !CONFIG.reducedMotion) {
             btn.style.transform = '';
         });
     });
+}
+
+// --- MOBILE MAGNETIC BUTTONS ENGINE (GYROSCOPE TILT & TOUCH PROXIMITY) ---
+const magneticButtons = document.querySelectorAll('.magnetic');
+if (window.matchMedia('(pointer: coarse)').matches || !window.matchMedia('(pointer: fine)').matches) {
+    let gyroBtnX = 0;
+    let gyroBtnY = 0;
+
+    // 1. Phone Tilt: Buttons dynamically wobble and tilt with device orientation
+    window.addEventListener('deviceorientation', (e) => {
+        if (currentMode === 'locked') return;
+        if (e.gamma !== null && e.beta !== null) {
+            const clampedGamma = Math.max(-25, Math.min(25, e.gamma));
+            const clampedBeta = Math.max(-25, Math.min(25, e.beta - 45));
+            gyroBtnX = (clampedGamma / 25) * 8; // ±8px tilt
+            gyroBtnY = (-clampedBeta / 25) * 6; // ±6px tilt
+
+            magneticButtons.forEach((btn, idx) => {
+                const stagger = 1 + (idx % 3) * 0.15;
+                btn.style.transform = `translate(${gyroBtnX * stagger}px, ${gyroBtnY * stagger}px)`;
+            });
+        }
+    }, { passive: true });
+
+    // 2. Touch Proximity: Buttons softly gravitate toward finger swipe
+    window.addEventListener('touchmove', (e) => {
+        if (currentMode === 'locked' || e.touches.length === 0) return;
+        const touch = e.touches[0];
+        magneticButtons.forEach(btn => {
+            const rect = btn.getBoundingClientRect();
+            const btnCenterX = rect.left + rect.width / 2;
+            const btnCenterY = rect.top + rect.height / 2;
+            const dx = touch.clientX - btnCenterX;
+            const dy = touch.clientY - btnCenterY;
+            const dist = Math.hypot(dx, dy);
+
+            if (dist < 180) {
+                const pull = (1 - dist / 180) * 12;
+                btn.style.transform = `translate(${(dx / dist) * pull}px, ${(dy / dist) * pull}px)`;
+            } else {
+                btn.style.transform = `translate(${gyroBtnX}px, ${gyroBtnY}px)`;
+            }
+        });
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+        magneticButtons.forEach(btn => {
+            btn.style.transform = `translate(${gyroBtnX}px, ${gyroBtnY}px)`;
+        });
+    }, { passive: true });
 }
 
 /* --- THREE.JS HERO CANVAS --- */

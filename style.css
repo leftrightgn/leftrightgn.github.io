@@ -107,13 +107,13 @@ body[data-mode="locked"] {
     --radius-lg: 8px;
 }
 
-/* Reduced motion defaults */
+/* Accessible motion preferences */
 @media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+    .marquee-content {
+        animation-duration: 40s; /* Slower, gentle scrolling instead of abrupt stop */
+    }
+    .custom-cursor {
+        display: none !important;
     }
 }
 
@@ -720,7 +720,7 @@ body[data-mode="free"] .project-card:hover {
 
 /* Marquee */
 .marquee-container {
-    padding: 3rem 0;
+    padding: 2.4rem 0;
     background: var(--border-color);
     color: var(--bg-color);
     overflow: hidden;
@@ -728,6 +728,8 @@ body[data-mode="free"] .project-card:hover {
     border-top: var(--border-thickness) solid var(--border-color);
     border-bottom: var(--border-thickness) solid var(--border-color);
     transition: background 0.5s, color 0.5s, border-color 0.5s;
+    user-select: none;
+    -webkit-user-select: none;
 }
 body[data-mode="locked"] .marquee-container {
     background: transparent;
@@ -736,15 +738,31 @@ body[data-mode="locked"] .marquee-container {
 .marquee-content {
     display: inline-block;
     font-family: var(--font-display);
-    font-size: 4rem;
+    font-size: clamp(2.2rem, 7.5vw, 4rem);
     font-weight: 800;
     text-transform: uppercase;
-    animation: marquee 20s linear infinite;
+    will-change: transform;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-animation: marquee 22s linear infinite;
+    animation: marquee 22s linear infinite;
 }
-.marquee-content span { margin: 0 2rem; }
+.marquee-content span { margin: 0 1.5rem; }
+
+@-webkit-keyframes marquee {
+    0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+    100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
+}
+
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+    100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
+}
+
+@media (max-width: 768px) {
+    .marquee-container {
+        padding: 1.6rem 0;
+    }
 }
 
 /* Fail Log */
