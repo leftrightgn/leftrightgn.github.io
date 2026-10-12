@@ -133,14 +133,14 @@ class FloatingObject {
     }
 
     update(time) {
-        if (!CONFIG.reducedMotion) {
-            this.group.rotation.x += this.rotSpeed.x;
-            this.group.rotation.y += this.rotSpeed.y;
-            this.group.rotation.z += this.rotSpeed.z;
+        // Keep objects animated even when reduced-motion preferences are enabled
+        // so the background keeps feeling alive.
+        this.group.rotation.x += this.rotSpeed.x;
+        this.group.rotation.y += this.rotSpeed.y;
+        this.group.rotation.z += this.rotSpeed.z;
 
-            // Gentle floating wave
-            this.group.position.y = this.basePos.y + Math.sin(time * this.floatSpeed + this.seed) * this.floatAmp;
-        }
+        // Gentle floating wave
+        this.group.position.y = this.basePos.y + Math.sin(time * this.floatSpeed + this.seed) * this.floatAmp;
     }
 
     setMode(mode) {
