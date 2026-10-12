@@ -3,6 +3,7 @@ import * as THREE from 'three';
 /**
  * Enhanced 3D Background Engine for HEIN SOE KHANT Portfolio
  * Spreads floating 3D geometries throughout the entire page scroll depth.
+ * Fully responsive across all screen sizes (mobile, tablet, desktop, ultrawide).
  */
 
 const CONFIG = {
@@ -14,7 +15,19 @@ const CONFIG = {
         accentOrange: '#FF7A3D',
         accentCyan: '#00e5ff'
     },
-    meshCount: window.innerWidth < 768 ? 10 : 20,
+    // Dynamic mesh count based on screen size and performance
+    getMeshCount: () => {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const pixelArea = width * height;
+        
+        // Scale mesh count based on screen real estate
+        if (pixelArea < 480000) return 12;      // Small phones (< 360px width)
+        if (pixelArea < 921600) return 16;      // Standard phones (360-480px)
+        if (pixelArea < 2073600) return 20;     // Tablets (768px+)
+        if (pixelArea < 3686400) return 24;     // Laptops (1366px+)
+        return 28;                               // Desktop/Ultrawide (1920px+)
+    },
     reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches
 };
 
@@ -89,9 +102,11 @@ class FloatingObject {
         const progress = index / total;
         const yPos = 8 - progress * verticalRange + (Math.random() - 0.5) * 4;
         
-        // Scatter laterally (left and right of central content)
+        // Responsive horizontal scatter based on screen width
+        const viewportWidth = window.innerWidth;
+        const maxHorizontalSpread = Math.min(viewportWidth / 2, 50); // Cap at 50 units
         const side = index % 2 === 0 ? 1 : -1;
-        const xPos = side * (6 + Math.random() * 8);
+        const xPos = side * (maxHorizontalSpread * 0.4 + Math.random() * maxHorizontalSpread * 0.4);
         const zPos = (Math.random() - 0.5) * 8 - 2;
 
         this.basePos = new THREE.Vector3(xPos, yPos, zPos);
@@ -159,10 +174,23 @@ class FloatingObject {
 }
 
 // Generate floating objects
-const floatingObjects = [];
-for (let i = 0; i < CONFIG.meshCount; i++) {
-    floatingObjects.push(new FloatingObject(i, CONFIG.meshCount));
+let floatingObjects = [];
+
+function initializeFloatingObjects() {
+    // Clear old objects
+    floatingObjects.forEach(obj => {
+        scene.remove(obj.group);
+    });
+    floatingObjects = [];
+
+    // Create new objects based on current screen size
+    const meshCount = CONFIG.getMeshCount();
+    for (let i = 0; i < meshCount; i++) {
+        floatingObjects.push(new FloatingObject(i, meshCount));
+    }
 }
+
+initializeFloatingObjects();
 
 // Update Mode Function for Background
 window.updateBgMode = function(mode) {
@@ -201,12 +229,31 @@ function onScroll() {
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
-// Resize
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-});
+// Comprehensive resize handler for all screen sizes
+let resizeTimeout;
+function handleResize() {
+    // Clear previous timeout to debounce resize events
+    clearTimeout(resizeTimeout);
+    
+    resizeTimeout = setTimeout(() => {
+        // Update camera aspect ratio
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        
+        // Update renderer size
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        
+        // Reinitialize floating objects for new screen size
+        initializeFloatingObjects();
+        
+        // Reset mode to apply to new objects
+        const currentMode = document.body.getAttribute('data-mode') || 'free';
+        window.updateBgMode(currentMode);
+    }, 250); // Debounce to avoid excessive recalculations
+}
+
+window.addEventListener('resize', handleResize);
+window.addEventListener('orientationchange', handleResize);
 
 // Animation Loop
 let lastTime = performance.now();
@@ -217,8 +264,10 @@ function animate() {
 
     if (!CONFIG.reducedMotion) {
         // Smooth camera parallax + scroll follow
-        camera.position.x += (mouseX * 1.8 - camera.position.x) * 0.05;
-        camera.position.y += (targetCameraY + mouseY * 0.8 - camera.position.y) * 0.06;
+        // Scale based on screen size to prevent excessive movement on mobile
+        const screenScale = Math.min(window.innerWidth / 1920, 1);
+        camera.position.x += (mouseX * 1.8 * screenScale - camera.position.x) * 0.05;
+        camera.position.y += (targetCameraY + mouseY * 0.8 * screenScale - camera.position.y) * 0.06;
         grid.position.y = camera.position.y - 12;
     }
 
