@@ -130,7 +130,14 @@ body {
     line-height: 1.5;
     overflow-x: hidden;
     transition: background-color 0.5s ease, color 0.5s ease;
-    cursor: none; /* Hide default cursor for custom one */
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Only enable custom cursor on devices that have a fine pointer AND hover */
+@media (hover: hover) and (pointer: fine) {
+    body {
+        cursor: none;
+    }
 }
 
 /* Accessibility Focus States */
@@ -171,10 +178,10 @@ a:focus-visible, button:focus-visible, .bento-card:focus-within {
     opacity: 1;
 }
 
-/* Mobile: hide custom cursor */
-@media (max-width: 768px) {
-    body { cursor: auto; }
-    .custom-cursor { display: none; }
+/* Smartphones, Tablets & Touch devices: always restore standard cursor & hide custom ball */
+@media (hover: none), (pointer: coarse), (max-width: 768px) {
+    body { cursor: auto !important; }
+    .custom-cursor { display: none !important; }
 }
 
 /* Grain Overlay */
@@ -477,12 +484,60 @@ body[data-mode="locked"] .btn:hover {
     box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--border-color);
     position: relative;
     overflow: hidden;
+    touch-action: pan-y; /* Fluid vertical page scroll + horizontal 3D turntable drag */
+    user-select: none;
+    -webkit-user-select: none;
     transition: border-color 0.5s, box-shadow 0.5s, background 0.5s, border-radius 0.5s;
 }
 body[data-mode="locked"] .hero-3d-container {
     box-shadow: none;
     background: transparent;
     border-radius: var(--radius-sm);
+}
+
+/* Mobile Interactive 3D Hint */
+.hero-3d-hint {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+    font-size: 0.78rem;
+    padding: 0.35rem 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 2px 2px 0 var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-color);
+    border: var(--border-thickness) solid var(--border-color);
+    border-radius: var(--radius-pill);
+    opacity: 0.95;
+    animation: hintPulse 2.4s ease-in-out infinite;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    white-space: nowrap;
+    user-select: none;
+}
+body[data-mode="locked"] .hero-3d-hint {
+    background: #181818;
+    color: var(--accent-lime);
+    border-color: var(--accent-lime);
+    box-shadow: 0 0 12px rgba(200, 243, 43, 0.25);
+}
+.hero-3d-hint.hidden {
+    opacity: 0 !important;
+    transform: translateX(-50%) translateY(8px) !important;
+    pointer-events: none !important;
+}
+@keyframes hintPulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+}
+@media (min-width: 969px) {
+    .hero-3d-hint {
+        display: none;
+    }
 }
 #hero-canvas {
     width: 100%;
@@ -608,6 +663,13 @@ body[data-mode="locked"] .bento-card {
 }
 .project-card:hover .media-hover-hint {
     opacity: 1;
+}
+@media (hover: none), (pointer: coarse) {
+    .media-hover-hint {
+        opacity: 0.95;
+        font-size: 0.75rem;
+        padding: 0.3rem 0.65rem;
+    }
 }
 
 .project-card-interactive {
@@ -880,10 +942,52 @@ body[data-mode="locked"] .mono-list li::before {
 }
 
 @media (max-width: 968px) {
-    .hero { grid-template-columns: 1fr; text-align: center; }
-    .hero-actions { justify-content: center; }
-    .hero-3d-container { max-width: 350px; margin: 0 auto; }
+    .hero { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+        padding: 2.5rem 5% 3.5rem 5%;
+        gap: 2.2rem;
+        min-height: auto;
+    }
+    .hero-content h1 {
+        font-size: clamp(2rem, 7.5vw, 3rem);
+        margin: 1.2rem 0;
+    }
+    .headline-statement {
+        font-size: 0.9em;
+    }
+    .hero-actions { 
+        justify-content: center; 
+        gap: 0.75rem;
+    }
+    .hero-3d-container { 
+        max-width: min(320px, 85vw); 
+        margin: 0 auto; 
+    }
     .about-bento { grid-template-columns: 1fr; }
+}
+
+/* Tactile Active States (Physical mechanical feedback on tap) */
+.btn:active,
+.lang-toggle-btn:active,
+.mode-toggle-btn:active,
+.open-project-trigger:active {
+    transform: translate(2px, 2px) scale(0.98) !important;
+    box-shadow: 2px 2px 0 var(--border-color) !important;
+    transition: transform 0.06s ease, box-shadow 0.06s ease !important;
+}
+body[data-mode="locked"] .btn:active,
+body[data-mode="locked"] .lang-toggle-btn:active,
+body[data-mode="locked"] .mode-toggle-btn:active {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
+}
+.project-card-interactive:active {
+    transform: scale(0.988);
+    transition: transform 0.08s ease;
+}
+.mini-card:active {
+    transform: scale(0.975);
+    transition: transform 0.08s ease;
 }
 
 /* ============================================================

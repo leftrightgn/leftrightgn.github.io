@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css?v=17">
+    <link rel="stylesheet" href="style.css?v=18">
     
     <!-- Three.js Import Map -->
     <script type="importmap">
@@ -67,6 +67,10 @@
             
             <div class="hero-3d-container" data-cursor="click me">
                 <canvas id="hero-canvas"></canvas>
+                <div class="hero-3d-hint badge" id="hero-3d-hint">
+                    <span class="hint-icon">🎮</span>
+                    <span data-i18n="hero_3d_hint">Touch & drag to inspect 🎮</span>
+                </div>
             </div>
         </section>
 
@@ -616,7 +620,7 @@
         </div>
     </div>
     
-    <script type="module" src="background.js?v=17"></script>
-    <script type="module" src="script.js?v=17"></script>
+    <script type="module" src="background.js?v=18"></script>
+    <script type="module" src="script.js?v=18"></script>
 </body>
 </html>

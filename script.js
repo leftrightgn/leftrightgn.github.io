@@ -27,6 +27,7 @@ const TRANSLATIONS = {
         btn_say_hi: "Say hi",
         projects_title: "Things I Built",
         click_to_open_hint: "Click to open full project page ↗",
+        hero_3d_hint: "Touch & drag to inspect 🎮",
         
         // Homepage Card 1 (DUAL)
         project1_title: "DUAL",
@@ -213,6 +214,7 @@ const TRANSLATIONS = {
         
         projects_title: "制作実績",
         click_to_open_hint: "クリックで詳細ページを開く ↗",
+        hero_3d_hint: "スワイプで3D回転 🎮",
 
         // Homepage Card 1 (DUAL)
         project1_title: "DUAL (デュアル)",
@@ -614,7 +616,7 @@ if (canvas) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.z = 4.5;
+    camera.position.z = 3.7;
 
     // A chunky character/controller from primitives
     const group = new THREE.Group();
@@ -691,24 +693,121 @@ if (canvas) {
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    // Interaction 
+    // Multi-Device Interaction Engine (Touch, Mouse, Gyroscope & Idle Physics)
+    let currentRotation = { x: 0, y: 0 };
     let targetRotation = { x: 0, y: 0 };
+    let rotVelocity = { x: 0, y: 0 };
     let scaleY = 1;
-    
+    let isTouchDragging = false;
+    let isMouseHovering = false;
+    let touchStartPos = { x: 0, y: 0, time: 0 };
+    let lastTouchPos = { x: 0, y: 0 };
+    let heroGyro = { x: 0, y: 0 };
+
+    const hintEl = document.getElementById('hero-3d-hint');
+    const dismissHint = () => {
+        if (hintEl && !hintEl.classList.contains('hidden')) {
+            hintEl.classList.add('hidden');
+        }
+    };
+
     if (!CONFIG.reducedMotion) {
+        // --- 1. MOUSE CONTROLS (PC) ---
         container.addEventListener('mousemove', (e) => {
+            isMouseHovering = true;
             const rect = container.getBoundingClientRect();
             const x = (e.clientX - rect.left) / rect.width * 2 - 1;
             const y = -(e.clientY - rect.top) / rect.height * 2 + 1;
-            targetRotation.x = y * 0.4;
-            targetRotation.y = x * 0.4;
+            targetRotation.x = y * 0.45;
+            targetRotation.y = x * 0.45;
         });
         container.addEventListener('mouseleave', () => {
+            isMouseHovering = false;
             targetRotation.x = 0;
             targetRotation.y = 0;
         });
-        container.addEventListener('mousedown', () => { scaleY = 0.7; }); // squash
-        container.addEventListener('mouseup', () => { scaleY = 1.15; }); // stretch
+        container.addEventListener('mousedown', () => {
+            dismissHint();
+            scaleY = 0.72; // Squash
+        });
+        container.addEventListener('mouseup', () => {
+            scaleY = 1.18; // Stretch bounce
+        });
+
+        // --- 2. TOUCH CONTROLS (SMARTPHONES & TABLETS) ---
+        container.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                dismissHint();
+                if (window.initBackgroundGyro) window.initBackgroundGyro();
+
+                isTouchDragging = true;
+                const t = e.touches[0];
+                touchStartPos = { x: t.clientX, y: t.clientY, time: performance.now() };
+                lastTouchPos = { x: t.clientX, y: t.clientY };
+                rotVelocity = { x: 0, y: 0 };
+                scaleY = 0.78; // Gentle tactile squash
+            }
+        }, { passive: true });
+
+        container.addEventListener('touchmove', (e) => {
+            if (!isTouchDragging || e.touches.length !== 1) return;
+            const t = e.touches[0];
+            const dx = t.clientX - lastTouchPos.x;
+            const dy = t.clientY - lastTouchPos.y;
+            const totalDistX = Math.abs(t.clientX - touchStartPos.x);
+            const totalDistY = Math.abs(t.clientY - touchStartPos.y);
+
+            // If user is predominantly rotating horizontally or interacting with the 3D model, prevent scroll cancel
+            if (totalDistX > 6 && totalDistX > totalDistY * 0.8) {
+                if (e.cancelable) e.preventDefault();
+            }
+
+            const rect = container.getBoundingClientRect();
+            const rotSpeed = 2.4;
+            const deltaRotY = (dx / rect.width) * rotSpeed;
+            const deltaRotX = -(dy / rect.height) * rotSpeed;
+
+            currentRotation.y += deltaRotY;
+            currentRotation.x = Math.max(-0.7, Math.min(0.7, currentRotation.x + deltaRotX));
+
+            // Track velocity for inertia flick
+            rotVelocity.y = deltaRotY * 0.6;
+            rotVelocity.x = deltaRotX * 0.5;
+
+            lastTouchPos = { x: t.clientX, y: t.clientY };
+        }, { passive: false });
+
+        const endTouch = () => {
+            if (!isTouchDragging) return;
+            isTouchDragging = false;
+            const dt = performance.now() - touchStartPos.time;
+            const totalDist = Math.hypot(lastTouchPos.x - touchStartPos.x, lastTouchPos.y - touchStartPos.y);
+
+            // Quick tap: fun jump & pop bounce
+            if (dt < 280 && totalDist < 10) {
+                scaleY = 0.6;
+                setTimeout(() => { scaleY = 1.25; }, 80);
+                rotVelocity.y += 0.08;
+            } else {
+                scaleY = 1.15; // Spring recoil
+            }
+        };
+
+        container.addEventListener('touchend', endTouch, { passive: true });
+        container.addEventListener('touchcancel', () => {
+            isTouchDragging = false;
+            scaleY = 1.0;
+        }, { passive: true });
+
+        // --- 3. GYROSCOPE TILT (SMARTPHONE TILT) ---
+        window.addEventListener('deviceorientation', (e) => {
+            if (e.gamma !== null && e.beta !== null && !isTouchDragging) {
+                const clampedGamma = Math.max(-25, Math.min(25, e.gamma));
+                const clampedBeta = Math.max(-25, Math.min(25, e.beta - 45));
+                heroGyro.y = (clampedGamma / 25) * 0.35;
+                heroGyro.x = (-clampedBeta / 25) * 0.25;
+            }
+        }, { passive: true });
     }
 
     // Performance: Pause when hidden
@@ -727,17 +826,38 @@ if (canvas) {
         if (isPaused) return;
 
         if (!CONFIG.reducedMotion) {
-            // Smooth look at cursor
-            group.rotation.x += (targetRotation.x - group.rotation.x) * 0.08;
-            group.rotation.y += (targetRotation.y - group.rotation.y) * 0.08;
-            
-            // Idle bobbing
             const time = performance.now() * 0.002;
-            group.position.y = Math.sin(time) * 0.08;
+
+            // Apply inertia momentum decay after touch swipe
+            if (!isTouchDragging) {
+                currentRotation.y += rotVelocity.y;
+                currentRotation.x = Math.max(-0.7, Math.min(0.7, currentRotation.x + rotVelocity.x));
+                rotVelocity.y *= 0.92;
+                rotVelocity.x *= 0.92;
+
+                // When idle and not hovered with mouse, blend towards origin + subtle idle drift
+                if (!isMouseHovering && Math.abs(rotVelocity.y) < 0.002 && Math.abs(rotVelocity.x) < 0.002) {
+                    currentRotation.x += (0 - currentRotation.x) * 0.04;
+                    // Keep gentle bobbing
+                }
+            }
+
+            // Idle floating wave & natural breathing movement
+            const idleBob = Math.sin(time) * 0.08;
+            const idleTiltX = Math.sin(time * 0.8) * 0.05;
+            const idleTiltY = Math.cos(time * 0.6) * 0.06;
+            group.position.y = idleBob;
+
+            // Target angles combining user input, inertia, gyro, and idle motion
+            const finalTargetX = currentRotation.x + (isMouseHovering ? targetRotation.x : (heroGyro.x + idleTiltX));
+            const finalTargetY = currentRotation.y + (isMouseHovering ? targetRotation.y : (heroGyro.y + idleTiltY));
+
+            group.rotation.x += (finalTargetX - group.rotation.x) * 0.1;
+            group.rotation.y += (finalTargetY - group.rotation.y) * 0.1;
             
             // Squash and stretch spring physics
-            scaleY += (1 - scaleY) * 0.15; 
-            const scaleX = 1 + (1 - scaleY) * 0.4; 
+            scaleY += (1 - scaleY) * 0.16; 
+            const scaleX = 1 + (1 - scaleY) * 0.42; 
             group.scale.set(scaleX, scaleY, scaleX);
         }
 
