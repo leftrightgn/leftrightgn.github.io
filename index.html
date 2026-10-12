@@ -242,6 +242,39 @@
                         </div>
                     </div>
                 </article>
+
+                <!-- Project 3: TeTrash (DePaul University × Trident Game Jam 1st Prize Winner) -->
+                <article class="bento-card project-card magnetic-hover project-card-interactive" data-project="tetrash" data-cursor="open ↗" tabindex="0" role="button" aria-label="Open TeTrash Project Deep Dive">
+                    <div class="card-media">
+                        <video class="project-video" src="tetrash-gameplay.mp4" poster="tetrash-thumb.jpg" autoplay loop muted playsinline preload="metadata" aria-label="TeTrash Gameplay Preview"></video>
+                        <div class="media-overlay-badge badge color-lime" data-i18n="tetrash_award_badge">🏆 1st Prize • Honor of Excellence</div>
+                        <div class="media-hover-hint">
+                            <span data-i18n="click_to_open_hint">Click to open full project page ↗</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 data-i18n="project3_title">TeTrash</h3>
+                            <span class="badge color-lime" data-i18n="tetrash_status">🏆 1st Prize (Honor of Excellence)</span>
+                        </div>
+                        <p class="desc project-card-teaser" data-i18n="project3_teaser">
+                            My first game jam experience! A fast-paced survival platformer built in a cross-cultural collaboration between DePaul University and Trident Computer College. Play as a trash packer robot stacking Tetris-like trash pieces to escape the lethal grinder pit below.
+                        </p>
+                        <div class="tags">
+                            <span class="badge color-lime" data-i18n="tetrash_tag_award">🏆 1st Prize (Honor of Excellence)</span>
+                            <span class="badge" data-i18n="tetrash_tag_collab">DePaul Univ × Trident College</span>
+                            <span class="badge" data-i18n="tetrash_tag_theme">Theme: What to Keep & Throw</span>
+                            <span class="badge" data-i18n="tetrash_tag_engine">Unity (C#)</span>
+                            <span class="badge" data-i18n="tetrash_tag_genre">Tetris × Survival Platformer</span>
+                        </div>
+                        <div class="card-footer-action">
+                            <button type="button" class="btn btn-secondary open-project-trigger" data-project="tetrash" data-i18n="btn_explore_tetrash">
+                                Open TeTrash Deep Dive →
+                            </button>
+                            <span class="role-sticker badge color-lime" data-i18n="project3_role">Role: Gameplay Programmer & Collaborator</span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -634,11 +667,163 @@
                     </div>
                 </article>
 
+                <!-- TeTrash Project Deep Dive Page -->
+                <article id="project-detail-tetrash" class="project-detail-article">
+                    <div class="modal-project-header">
+                        <div class="modal-eyebrow">
+                            <span class="badge color-lime" data-i18n="tetrash_eyebrow_award">🏆 1st Prize • Honor of Excellence</span>
+                            <span class="badge color-orange" data-i18n="tetrash_eyebrow_jam">DePaul University × Trident Game Jam</span>
+                            <span class="badge color-violet" data-i18n="tetrash_eyebrow_team">First Game Jam • International Collaboration</span>
+                        </div>
+                        <h1 class="modal-project-title">TeTrash</h1>
+                        <p class="modal-project-subtitle" data-i18n="tetrash_modal_subtitle">
+                            Tetris × Trash Survival Platformer • Theme: "What to Keep and What to Throw" • 1st Prize (Honor of Excellence) Winner
+                        </p>
+                    </div>
+
+                    <!-- Hero Media Showcase: Full Gameplay Recording -->
+                    <div class="modal-media-showcase">
+                        <div class="modal-media-frame video-frame">
+                            <video id="tetrash-modal-video" class="modal-hero-video" src="tetrash-gameplay.mp4" poster="tetrash-thumb.jpg" controls playsinline preload="auto" loop aria-label="TeTrash Official Gameplay Video">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="modal-preview-badge badge color-lime" data-i18n="tetrash_video_badge">🏆 1st Prize Gameplay Footage</div>
+                        </div>
+                        <p class="modal-media-caption" data-i18n="tetrash_modal_media_caption">
+                            ▲ Official Gameplay Recording: Playing as the trash packer robot, dodging falling hazardous scrap, catching usable blocks, and stacking columns to escape the crushing grinder below.
+                        </p>
+                    </div>
+
+                    <!-- Meta Quick Stats -->
+                    <div class="modal-meta-grid">
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="tetrash_meta_event_label">Event / Contest</div>
+                            <div class="meta-val" data-i18n="tetrash_meta_event_val">DePaul University × Trident Computer College Jam</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="tetrash_meta_award_label">Result / Award</div>
+                            <div class="meta-val text-accent" data-i18n="tetrash_meta_award_val">🏆 1st Prize — Honor of Excellence (最優秀賞)</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="tetrash_meta_role_label">My Role</div>
+                            <div class="meta-val" data-i18n="tetrash_meta_role_val">Gameplay Programmer & Collaborator</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="tetrash_meta_theme_label">Jam Theme</div>
+                            <div class="meta-val" data-i18n="tetrash_meta_theme_val">What to keep and what to throw (捨てるものと残すもの)</div>
+                        </div>
+                    </div>
+
+                    <!-- Section 1: Concept & Inspiration -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">🗑️</span>
+                            <span data-i18n="tetrash_sec1_title">The Concept: Tetris × Trash Survival</span>
+                        </h2>
+                        
+                        <div class="modal-prose">
+                            <div class="concept-callout">
+                                <p data-i18n="tetrash_sec1_callout">
+                                    "When presented with the jam theme <strong>'What to keep and what to throw'</strong>, we brainstormed what trash really means. Trash is everything society discards—yet to a little trash packer robot trapped deep inside an industrial grinder shaft, the very garbage falling from above is the only material that can save its life. That sparked our game: <strong>TeTrash</strong>."
+                                </p>
+                            </div>
+
+                            <h3 data-i18n="tetrash_core_heading">Stack to Survive! A Relentless Battle to Avoid Your Demise!</h3>
+                            <p data-i18n="tetrash_core_p1">
+                                In <strong>TeTrash</strong>, the player controls a brave little trash-compacting robot trapped at the bottom of a hazardous incineration pit. Above, a relentless storm of debris rains down; below, deadly grinder gears threaten to crush anything that touches the floor.
+                            </p>
+                            <p data-i18n="tetrash_core_p2">
+                                <strong>What to keep, what to throw:</strong> Players must make split-second decisions under pressure. Toxic rotting debris (fish skeletons, hazardous waste, radioactive slag) must be avoided or thrown away. Meanwhile, solid compacted paper and recyclable trash blocks must be caught and placed directly beneath the robot (using the Place action) to construct an ascending escape tower and climb towards freedom!
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Section 2: Official Game Poster & Controls -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">🎨</span>
+                            <span data-i18n="tetrash_sec2_title">Official Game Poster & Controls Showcase</span>
+                        </h2>
+                        <div class="meineko-poster-showcase">
+                            <div class="poster-frame">
+                                <img src="tetrash-poster.jpg" alt="TeTrash Official Game Poster" class="meineko-poster-img" loading="lazy">
+                                <span class="badge color-lime poster-badge" data-i18n="tetrash_poster_badge">DePaul × Trident Official Poster</span>
+                            </div>
+                            <div class="poster-details">
+                                <h3 data-i18n="tetrash_poster_heading">Bilingual Design & Gamepad Control Scheme</h3>
+                                <p data-i18n="tetrash_poster_desc1">
+                                    Co-designed for the joint exhibition between DePaul University and Trident Computer College, featuring full English and Japanese control explanations:
+                                </p>
+                                <ul class="mono-list" style="margin: 1rem 0;">
+                                    <li data-i18n="tetrash_ctrl_move"><strong>MOVE / うごく:</strong> Left Analog Stick — Smooth horizontal platforming traversal</li>
+                                    <li data-i18n="tetrash_ctrl_jump"><strong>JUMP / ジャンプ:</strong> Y Button — Vertical leaps to scale stacked towers</li>
+                                    <li data-i18n="tetrash_ctrl_catch"><strong>CATCH / ふれる:</strong> Direct Touch — Catch falling recyclable trash blocks mid-air</li>
+                                    <li data-i18n="tetrash_ctrl_place"><strong>PLACE / おく:</strong> B Button — Instantly place the held block beneath your feet to climb higher</li>
+                                </ul>
+                                <p data-i18n="tetrash_poster_desc2">
+                                    Featuring the official bilingual tagline: <em>"Stack to survive! A relentless battle to avoid your demise! / 積んで生き延びろ！死を避ける容赦なきバトル！"</em>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 3: First Jam Experience & Personal Takeaways -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">🌟</span>
+                            <span data-i18n="tetrash_sec3_title">First Game Jam Experience: What I Gained & Learned</span>
+                        </h2>
+
+                        <div class="modal-prose">
+                            <p data-i18n="tetrash_learn_intro">
+                                <strong>TeTrash</strong> was my very first game jam experience. Stepping into an intensive sprint with international teammates from DePaul University and Trident Computer College taught me pivotal development and communication lessons that shaped my growth as a developer:
+                            </p>
+                            
+                            <div class="reflections-grid">
+                                <div class="reflection-card color-lime-card">
+                                    <div class="reflection-card-header">
+                                        <span class="badge color-lime" data-i18n="tetrash_card1_badge">Cross-Cultural Communication</span>
+                                        <h3 data-i18n="tetrash_card1_title">Communicating Across Borders</h3>
+                                    </div>
+                                    <p data-i18n="tetrash_card1_desc">
+                                        Partnering across languages and universities, I learned how to communicate design ideas clearly, listen intently to teammates, bridge cultural perspectives, and ensure everyone stayed unified around the core game loop.
+                                    </p>
+                                </div>
+                                <div class="reflection-card color-orange-card">
+                                    <div class="reflection-card-header">
+                                        <span class="badge color-orange" data-i18n="tetrash_card2_badge">Execution & Reliability</span>
+                                        <h3 data-i18n="tetrash_card2_title">Doing the Job & Hitting Deadlines</h3>
+                                    </div>
+                                    <p data-i18n="tetrash_card2_desc">
+                                        Game jams leave zero room for excuses. By breaking responsibilities into clear deliverables, implementing the core mechanics reliably, and finishing my part promptly, our team built strong momentum and trust.
+                                    </p>
+                                </div>
+                                <div class="reflection-card color-violet-card">
+                                    <div class="reflection-card-header">
+                                        <span class="badge color-violet" data-i18n="tetrash_card3_badge">Victory & Recognition</span>
+                                        <h3 data-i18n="tetrash_card3_title">1st Prize: Honor of Excellence</h3>
+                                    </div>
+                                    <p data-i18n="tetrash_card3_desc">
+                                        Managing to win 1st Prize (Honor of Excellence) was an unforgettable triumph. It validated that clear communication, strong team synergy, and focused game design can achieve the highest recognition.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Bottom Return Action -->
+                    <div class="modal-bottom-actions">
+                        <button type="button" class="btn btn-primary modal-back-btn-bottom" data-cursor="back">
+                            ← <span data-i18n="modal_btn_back">Back to Portfolio</span>
+                        </button>
+                    </div>
+                </article>
+
             </div>
         </div>
     </div>
     
-    <script type="module" src="background.js?v=20"></script>
-    <script type="module" src="script.js?v=20"></script>
+    <script type="module" src="background.js?v=21"></script>
+    <script type="module" src="script.js?v=21"></script>
 </body>
 </html>

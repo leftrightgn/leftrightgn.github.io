@@ -51,6 +51,63 @@ const TRANSLATIONS = {
         meineko_tag_theme: "Theme: Time and Again (七転八起)",
         meineko_tag_sprint: "10-Day Sprint",
 
+        // Homepage Card 3 (TeTrash)
+        project3_title: "TeTrash",
+        tetrash_award_badge: "🏆 1st Prize • Honor of Excellence",
+        tetrash_status: "🏆 1st Prize (Honor of Excellence)",
+        project3_teaser: "My first game jam experience! A fast-paced survival platformer built in a cross-cultural collaboration between DePaul University and Trident Computer College. Play as a trash packer robot stacking Tetris-like trash pieces to escape the lethal grinder pit below.",
+        btn_explore_tetrash: "Open TeTrash Deep Dive →",
+        project3_role: "Role: Gameplay Programmer & Collaborator",
+        tetrash_tag_award: "🏆 1st Prize (Honor of Excellence)",
+        tetrash_tag_collab: "DePaul Univ × Trident College",
+        tetrash_tag_theme: "Theme: What to Keep & Throw",
+        tetrash_tag_engine: "Unity (C#)",
+        tetrash_tag_genre: "Tetris × Survival Platformer",
+
+        // Modal TeTrash
+        tetrash_eyebrow_award: "🏆 1st Prize • Honor of Excellence",
+        tetrash_eyebrow_jam: "DePaul University × Trident Game Jam",
+        tetrash_eyebrow_team: "First Game Jam • International Collaboration",
+        tetrash_modal_subtitle: "Tetris × Trash Survival Platformer • Theme: 'What to Keep and What to Throw' • 1st Prize (Honor of Excellence) Winner",
+        tetrash_video_badge: "🏆 1st Prize Gameplay Footage",
+        tetrash_modal_media_caption: "▲ Official Gameplay Recording: Playing as the trash packer robot, dodging falling hazardous scrap, catching usable blocks, and stacking columns to escape the crushing grinder below.",
+        tetrash_meta_event_label: "Event / Contest",
+        tetrash_meta_event_val: "DePaul University × Trident Computer College Jam",
+        tetrash_meta_award_label: "Result / Award",
+        tetrash_meta_award_val: "🏆 1st Prize — Honor of Excellence (最優秀賞)",
+        tetrash_meta_role_label: "My Role",
+        tetrash_meta_role_val: "Gameplay Programmer & Collaborator",
+        tetrash_meta_theme_label: "Jam Theme",
+        tetrash_meta_theme_val: "What to keep and what to throw (捨てるものと残すもの)",
+
+        tetrash_sec1_title: "The Concept: Tetris × Trash Survival",
+        tetrash_sec1_callout: "\"When presented with the jam theme <strong>'What to keep and what to throw'</strong>, we brainstormed what trash really means. Trash is everything society discards—yet to a little trash packer robot trapped deep inside an industrial grinder shaft, the very garbage falling from above is the only material that can save its life. That sparked our game: <strong>TeTrash</strong>.\"",
+        tetrash_core_heading: "Stack to Survive! A Relentless Battle to Avoid Your Demise!",
+        tetrash_core_p1: "In <strong>TeTrash</strong>, the player controls a brave little trash-compacting robot trapped at the bottom of a hazardous incineration pit. Above, a relentless storm of debris rains down; below, deadly grinder gears threaten to crush anything that touches the floor.",
+        tetrash_core_p2: "<strong>What to keep, what to throw:</strong> Players must make split-second decisions under pressure. Toxic rotting debris (fish skeletons, hazardous waste, radioactive slag) must be avoided or thrown away. Meanwhile, solid compacted paper and recyclable trash blocks must be caught and placed directly beneath the robot (using the Place action) to construct an ascending escape tower and climb towards freedom!",
+
+        tetrash_sec2_title: "Official Game Poster & Controls Showcase",
+        tetrash_poster_badge: "DePaul × Trident Official Poster",
+        tetrash_poster_heading: "Bilingual Design & Gamepad Control Scheme",
+        tetrash_poster_desc1: "Co-designed for the joint exhibition between DePaul University and Trident Computer College, featuring full English and Japanese control explanations:",
+        tetrash_ctrl_move: "<strong>MOVE / うごく:</strong> Left Analog Stick — Smooth horizontal platforming traversal",
+        tetrash_ctrl_jump: "<strong>JUMP / ジャンプ:</strong> Y Button — Vertical leaps to scale stacked towers",
+        tetrash_ctrl_catch: "<strong>CATCH / ふれる:</strong> Direct Touch — Catch falling recyclable trash blocks mid-air",
+        tetrash_ctrl_place: "<strong>PLACE / おく:</strong> B Button — Instantly place the held block beneath your feet to climb higher",
+        tetrash_poster_desc2: "Featuring the official bilingual tagline: <em>\"Stack to survive! A relentless battle to avoid your demise! / 積んで生き延びろ！死を避ける容赦なきバトル！\"</em>",
+
+        tetrash_sec3_title: "First Game Jam Experience: What I Gained & Learned",
+        tetrash_learn_intro: "<strong>TeTrash</strong> was my very first game jam experience. Stepping into an intensive sprint with international teammates from DePaul University and Trident Computer College taught me pivotal development and communication lessons that shaped my growth as a developer:",
+        tetrash_card1_badge: "Cross-Cultural Communication",
+        tetrash_card1_title: "Communicating Across Borders",
+        tetrash_card1_desc: "Partnering across languages and universities, I learned how to communicate design ideas clearly, listen intently to teammates, bridge cultural perspectives, and ensure everyone stayed unified around the core game loop.",
+        tetrash_card2_badge: "Execution & Reliability",
+        tetrash_card2_title: "Doing the Job & Hitting Deadlines",
+        tetrash_card2_desc: "Game jams leave zero room for excuses. By breaking responsibilities into clear deliverables, implementing the core mechanics reliably, and finishing my part promptly, our team built strong momentum and trust.",
+        tetrash_card3_badge: "Victory & Recognition",
+        tetrash_card3_title: "1st Prize: Honor of Excellence",
+        tetrash_card3_desc: "Managing to win 1st Prize (Honor of Excellence) was an unforgettable triumph. It validated that clear communication, strong team synergy, and focused game design can achieve the highest recognition.",
+
         // Modal MEINEKO
         meineko_eyebrow_award: "🏆 優秀賞 (Excellence Award)",
         meineko_eyebrow_jam: "IGCC Game Jam 2026",
@@ -237,6 +294,63 @@ const TRANSLATIONS = {
         meineko_tag_genre: "高速アクション × カード戦略",
         meineko_tag_theme: "テーマ: 七転八起 (Time and Again)",
         meineko_tag_sprint: "10日間短期開発",
+
+        // Homepage Card 3 (TeTrash)
+        project3_title: "TeTrash (テトラッシュ)",
+        tetrash_award_badge: "🏆 最優秀賞 / Honor of Excellence",
+        tetrash_status: "🏆 最優秀賞 (Honor of Excellence)",
+        project3_teaser: "自身初のゲームジャム挑戦作！デポール大学（DePaul University）× トライデントコンピュータ専門学校の合同国際ゲームジャムにて、最優秀賞（Honor of Excellence / 第1位）を受賞。ゴミ処理ロボットを操作し、落ちてくるテトリス状のゴミを積み上げて底の破砕機から脱出するサバイバルアクション！",
+        btn_explore_tetrash: "TeTrash プロジェクト詳細を見る →",
+        project3_role: "担当: ゲームプレイプログラマー & 国際チーム開発",
+        tetrash_tag_award: "🏆 最優秀賞 (1st Prize)",
+        tetrash_tag_collab: "デポール大 × トライデント合同ジャム",
+        tetrash_tag_theme: "テーマ: 捨てるものと残すもの",
+        tetrash_tag_engine: "Unity (C#)",
+        tetrash_tag_genre: "テトリス × 脱出サバイバル",
+
+        // Modal TeTrash
+        tetrash_eyebrow_award: "🏆 最優秀賞 (Honor of Excellence)",
+        tetrash_eyebrow_jam: "DePaul Univ × Trident 合同ゲームジャム",
+        tetrash_eyebrow_team: "初ゲームジャム • 国際合同チーム",
+        tetrash_modal_subtitle: "テトリス × ゴミ脱出サバイバル • テーマ: 「捨てるものと残すもの」 • 最優秀賞（Honor of Excellence）受賞作",
+        tetrash_video_badge: "🏆 最優秀賞 実機プレイ映像",
+        tetrash_modal_media_caption: "▲ 公式実機プレイ映像：ゴミ圧縮ロボットを操作し、落下する危険な生ゴミを避けつつ、有用なゴミブロックをキャッチして足元に積み上げ、迫り来る底の破砕機（グラインダー）から脱出する緊迫のゲームプレイ。",
+        tetrash_meta_event_label: "参加イベント",
+        tetrash_meta_event_val: "デポール大学 × トライデント合同ゲームジャム",
+        tetrash_meta_award_label: "受賞結果",
+        tetrash_meta_award_val: "🏆 最優秀賞 / 1st Prize (Honor of Excellence)",
+        tetrash_meta_role_label: "担当役割",
+        tetrash_meta_role_val: "ゲームプレイプログラミング & チーム開発",
+        tetrash_meta_theme_label: "ジャムテーマ",
+        tetrash_meta_theme_val: "What to keep and what to throw (捨てるものと残すもの)",
+
+        tetrash_sec1_title: "ゲームコンセプト：テトリス × ゴミ脱出サバイバル",
+        tetrash_sec1_callout: "「与えられたジャムテーマは<strong>『What to keep and what to throw（捨てるものと残すもの）』</strong>でした。私たちは『ゴミ』という存在に着目しました。人間にとっては捨てるゴミでも、破砕機の底に閉じ込められたゴミ圧縮ロボットにとっては、頭上から降ってくるゴミこそが命を救う唯一の足場になる――その逆転の発想から生まれたのが<strong>『TeTrash（テトラッシュ）』</strong>です。」",
+        tetrash_core_heading: "積んで生き延びろ！ 死を避ける容赦なきバトル！",
+        tetrash_core_p1: "<strong>『TeTrash』</strong>は、巨大な産業廃棄物シャフトの底に取り残された小型ゴミ圧縮ロボットが主人公の2Dサバイバルアクションです。頭上からは絶え間なくゴミが降り注ぎ、足元には触れれば即死の巨大破砕刃（グラインダー）が回転しています。",
+        tetrash_core_p2: "<strong>捨てるものと残すものの判断:</strong> プレイヤーは落下物の中から、触れると危険な腐った魚の骨や有害ゴミを回避しつつ、足場として使える紙束や金属スクラップブロックをキャッチ。足元に「置く（PLACE）」ことで脱出タワーを積み上げ、上空の脱出口を目指して登り続けます。",
+
+        tetrash_sec2_title: "公式ポスターと操作システム解説",
+        tetrash_poster_badge: "デポール大 × トライデント 公式ポスター",
+        tetrash_poster_heading: "日英2言語対応のポスターとコントローラー操作設計",
+        tetrash_poster_desc1: "デポール大学とトライデントコンピュータ専門学校の合同成果発表会に向けて共同制作された公式ポスター。ゲームパッド（Xboxコントローラー）での直感的な操作体系を日米両言語でわかりやすく視覚化しました：",
+        tetrash_ctrl_move: "<strong>MOVE / うごく:</strong> 左スティック — 左右の滑らかな移動",
+        tetrash_ctrl_jump: "<strong>JUMP / ジャンプ:</strong> Yボタン — 積み上げたブロックを駆け上がるジャンプ",
+        tetrash_ctrl_catch: "<strong>CATCH / ふれる:</strong> 接触判定 — 落下してくるリサイクル可能なゴミブロックを直接キャッチ",
+        tetrash_ctrl_place: "<strong>PLACE / おく:</strong> Bボタン — 抱えたブロックを瞬時に足元に設置し、高い足場を形成",
+        tetrash_poster_desc2: "公式バイリンガルキャッチコピー：<em>「積んで生き延びろ！死を避ける容赦なきバトル！ / Stack to survive! A relentless battle to avoid your demise!」</em>",
+
+        tetrash_sec3_title: "自身初のゲームジャム：得られた経験と成長",
+        tetrash_learn_intro: "<strong>TeTrash</strong>は、私にとって人生で初めて挑戦した記念すべきゲームジャム作品です。シカゴのデポール大学とトライデント専門学校の学生が混成チームを組み、限られた短期日程の中で意見をぶつけ合いながら開発した経験は、ゲーム開発者としての原点となりました：",
+        tetrash_card1_badge: "国際コミュニケーション",
+        tetrash_card1_title: "言葉と文化の壁を越えたチーム連携",
+        tetrash_card1_desc: "言語やバックグラウンドが異なる仲間と開発を進める中で、相手の意見を尊重し、設計意図をシンプルかつ明確に伝え、チーム全体でひとつのゲームループに向かって足並みを揃えるコミュニケーション能力を養いました。",
+        tetrash_card2_badge: "実行力と責任感",
+        tetrash_card2_title: "各自が役割を全うし、期日内にやり切る力",
+        tetrash_card2_desc: "限られた時間で成果物を出すため、スコープを適切に見極め、「キャッチ＆設置」という核となる楽しさに集中。任されたプログラミングタスクを確実に期日までに実装し切る責任感を身につけました。",
+        tetrash_card3_badge: "最高賞の受賞",
+        tetrash_card3_title: "最優秀賞（Honor of Excellence）の獲得",
+        tetrash_card3_desc: "チーム一丸となって完成させた結果、数あるチームの中から見事第1位となる『最優秀賞（Honor of Excellence）』を受賞。仲間との信頼と団結があれば、高い壁を越えて素晴らしい成果を出せるという強い自信に繋がりました。",
 
         // Modal MEINEKO
         meineko_eyebrow_award: "🏆 優秀賞 受賞作",
@@ -945,8 +1059,16 @@ function openProjectModal(projectId) {
 
     // Update nav badge
     if (modalNavBadge) {
-        modalNavBadge.textContent = projectId === 'dual' ? 'DUAL' : '廻猫 MEINEKO';
-        modalNavBadge.className = `modal-nav-badge badge ${projectId === 'dual' ? 'color-lime' : 'color-orange'}`;
+        if (projectId === 'dual') {
+            modalNavBadge.textContent = 'DUAL';
+            modalNavBadge.className = 'modal-nav-badge badge color-lime';
+        } else if (projectId === 'meineko') {
+            modalNavBadge.textContent = '廻猫 MEINEKO';
+            modalNavBadge.className = 'modal-nav-badge badge color-orange';
+        } else if (projectId === 'tetrash') {
+            modalNavBadge.textContent = 'TeTrash';
+            modalNavBadge.className = 'modal-nav-badge badge color-lime';
+        }
     }
 
     // Show modal & prevent background scrolling
@@ -980,7 +1102,7 @@ function closeProjectModal() {
 
     // Clear hash if it was a project hash
     const currentHash = window.location.hash.toLowerCase();
-    if (currentHash.startsWith('#project-') || currentHash === '#dual' || currentHash === '#meineko') {
+    if (currentHash.startsWith('#project-') || currentHash === '#dual' || currentHash === '#meineko' || currentHash === '#tetrash') {
         if (window.history && window.history.replaceState) {
             window.history.replaceState(null, null, window.location.pathname + window.location.search);
         } else {
@@ -1035,6 +1157,8 @@ function handleHashRoute() {
         openProjectModal('dual');
     } else if (hash === '#project-meineko' || hash === '#meineko') {
         openProjectModal('meineko');
+    } else if (hash === '#project-tetrash' || hash === '#tetrash') {
+        openProjectModal('tetrash');
     } else if (projectModal && projectModal.classList.contains('active')) {
         closeProjectModal();
     }
