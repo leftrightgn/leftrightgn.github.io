@@ -223,30 +223,52 @@ initializeFloatingObjects();
 /* ============================================================
    MULTI-DEVICE INPUT ENGINE: MOUSE, TOUCH, SCROLL & GYROSCOPE
    ============================================================ */
-let inputX = 0;
-let inputY = 0;
-let targetCameraY = 0;
+// Separate, clean mouse tracking with smooth lerp
+let mouseX = 0;
+let mouseY = 0;
+let targetMouseX = 0;
+let targetMouseY = 0;
+
+// Separate touch tracking with swipe inertia
+let touchX = 0;
+let touchY = 0;
+let targetTouchX = 0;
+let targetTouchY = 0;
+let isTouchActive = false;
+
+// Gyroscope tracking
 let gyroX = 0;
 let gyroY = 0;
+let targetGyroX = 0;
+let targetGyroY = 0;
+let gyroActive = false;
+
 let scrollVelocity = 0;
+let targetCameraY = 0;
 let lastScrollY = window.scrollY;
 let lastScrollTime = performance.now();
 
-let isTouchActive = false;
-
-// 1. Mouse Tracking (PC)
+// 1. Mouse Tracking (PC) - strictly clamped [-1, 1]
 window.addEventListener('mousemove', (e) => {
-    inputX = (e.clientX / window.innerWidth) * 2 - 1;
-    inputY = -(e.clientY / window.innerHeight) * 2 + 1;
+    const rawX = (e.clientX / window.innerWidth) * 2 - 1;
+    const rawY = -(e.clientY / window.innerHeight) * 2 + 1;
+    targetMouseX = Math.max(-1, Math.min(1, rawX));
+    targetMouseY = Math.max(-1, Math.min(1, rawY));
 }, { passive: true });
+
+// When mouse leaves browser window, smoothly drift back to neutral center
+document.addEventListener('mouseleave', () => {
+    targetMouseX = 0;
+    targetMouseY = 0;
+});
 
 // 2. Touch Tracking (Smartphones & Tablets)
 window.addEventListener('touchstart', (e) => {
     isTouchActive = true;
     if (e.touches.length > 0) {
         const touch = e.touches[0];
-        inputX = (touch.clientX / window.innerWidth) * 2 - 1;
-        inputY = -(touch.clientY / window.innerHeight) * 2 + 1;
+        targetTouchX = Math.max(-1, Math.min(1, (touch.clientX / window.innerWidth) * 2 - 1));
+        targetTouchY = Math.max(-1, Math.min(1, -(touch.clientY / window.innerHeight) * 2 + 1));
     }
 }, { passive: true });
 
@@ -254,8 +276,8 @@ window.addEventListener('touchmove', (e) => {
     isTouchActive = true;
     if (e.touches.length > 0) {
         const touch = e.touches[0];
-        inputX = (touch.clientX / window.innerWidth) * 2 - 1;
-        inputY = -(touch.clientY / window.innerHeight) * 2 + 1;
+        targetTouchX = Math.max(-1, Math.min(1, (touch.clientX / window.innerWidth) * 2 - 1));
+        targetTouchY = Math.max(-1, Math.min(1, -(touch.clientY / window.innerHeight) * 2 + 1));
     }
 }, { passive: true });
 
@@ -264,7 +286,6 @@ window.addEventListener('touchend', () => {
 }, { passive: true });
 
 // 3. Gyroscope / Device Orientation (Phone Tilt)
-let gyroActive = false;
 function handleOrientation(e) {
     if (e.gamma !== null && e.beta !== null) {
         gyroActive = true;
@@ -273,8 +294,8 @@ function handleOrientation(e) {
         // beta: front-to-back tilt in degrees, centered around natural 45deg viewing angle
         const clampedBeta = Math.max(-30, Math.min(30, e.beta - 45));
 
-        gyroX = clampedGamma / 30; // -1 to 1
-        gyroY = -clampedBeta / 30; // -1 to 1
+        targetGyroX = clampedGamma / 30; // -1 to 1
+        targetGyroY = -clampedBeta / 30; // -1 to 1
     }
 }
 
@@ -342,9 +363,12 @@ function handleResize() {
 window.addEventListener('resize', handleResize);
 window.addEventListener('orientationchange', handleResize);
 
-// 6. Animation Loop
+// 6. Animation Loop with Rock-Solid Jitter-Free Damping
 let currentCamX = 0;
 let currentCamY = 0;
+let currentRotX = 0;
+let currentRotY = 0;
+let currentRotZ = 0;
 
 function animate() {
     requestAnimationFrame(animate);
@@ -354,11 +378,22 @@ function animate() {
     // Decay scroll kinetic velocity smoothly
     scrollVelocity *= 0.93;
 
-    // Decay touch swipe inertia when released
-    if (!isTouchActive) {
-        inputX *= 0.94;
-        inputY *= 0.94;
+    // Smoothly ease mouse coordinates towards target (no fighting decay!)
+    mouseX += (targetMouseX - mouseX) * 0.08;
+    mouseY += (targetMouseY - mouseY) * 0.08;
+
+    // Touch decays smoothly when finger released
+    if (isTouchActive) {
+        touchX += (targetTouchX - touchX) * 0.1;
+        touchY += (targetTouchY - touchY) * 0.1;
+    } else {
+        touchX *= 0.93;
+        touchY *= 0.93;
     }
+
+    // Smooth gyroscope easing
+    gyroX += (targetGyroX - gyroX) * 0.08;
+    gyroY += (targetGyroY - gyroY) * 0.08;
 
     if (!CONFIG.reducedMotion) {
         const isMobile = isMobileScreen();
@@ -366,20 +401,32 @@ function animate() {
         const gyroGainX = isMobile ? 3.0 : 1.2;
         const gyroGainY = isMobile ? 2.2 : 1.0;
 
-        const blendedX = inputX * 0.8 + (gyroX * gyroGainX);
-        const blendedY = inputY * 0.8 + (gyroY * gyroGainY);
+        // Clean blend of inputs
+        const blendedX = (mouseX * 0.75) + (touchX * 0.8) + (gyroX * gyroGainX);
+        const blendedY = (mouseY * 0.75) + (touchY * 0.8) + (gyroY * gyroGainY);
 
         // Smooth camera follow with damping
-        currentCamX += (blendedX * 2.2 - currentCamX) * 0.08;
-        currentCamY += (targetCameraY + blendedY * 1.5 - currentCamY) * 0.08;
+        const targetCamX = blendedX * 2.2;
+        const targetCamY = targetCameraY + blendedY * 1.5;
+
+        currentCamX += (targetCamX - currentCamX) * 0.06;
+        currentCamY += (targetCamY - currentCamY) * 0.06;
 
         camera.position.x = currentCamX;
         camera.position.y = currentCamY;
 
-        // Kinetic camera tilt on scroll and device orientation
-        camera.rotation.x = -scrollVelocity * 0.015 + (blendedY * 0.06);
-        camera.rotation.y = -blendedX * 0.07;
-        camera.rotation.z = blendedX * 0.025;
+        // Smooth, damped camera rotations (eliminates high-frequency vibration/shaking!)
+        const targetRotX = -scrollVelocity * 0.015 + (blendedY * 0.05);
+        const targetRotY = -blendedX * 0.05;
+        const targetRotZ = blendedX * 0.02;
+
+        currentRotX += (targetRotX - currentRotX) * 0.06;
+        currentRotY += (targetRotY - currentRotY) * 0.06;
+        currentRotZ += (targetRotZ - currentRotZ) * 0.06;
+
+        camera.rotation.x = currentRotX;
+        camera.rotation.y = currentRotY;
+        camera.rotation.z = currentRotZ;
 
         grid.position.y = camera.position.y - 12;
     }
