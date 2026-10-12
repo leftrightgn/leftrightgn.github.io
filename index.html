@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEIN SOE KHANT - Game Developer & Programmer</title>
+    
+    <!-- Google Fonts: Bricolage Grotesque, Noto Sans JP, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css?v=17">
+    
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.158.0/build/three.module.js"
+            }
+        }
+    </script>
+</head>
+<body data-mode="free">
+    <!-- Subtle paper grain overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor"><span id="cursor-label"></span></div>
+
+    <header class="site-header">
+        <div class="logo">HEIN SOE KHANT</div>
+        
+        <div class="header-controls">
+            <!-- Language Toggle (EN / JA) -->
+            <button id="lang-toggle" class="lang-toggle-btn magnetic" aria-label="Toggle language" data-cursor="language">
+                <span class="lang-pill pill-en active">EN</span>
+                <span class="lang-separator">/</span>
+                <span class="lang-pill pill-ja">日本語</span>
+            </button>
+
+            <!-- Mode Toggle (Free mode / Locked in) -->
+            <button id="mode-toggle" class="mode-toggle-btn magnetic" aria-label="Toggle mode" data-cursor="toggle">
+                <span class="mode-pill pill-free">Free mode</span>
+                <span class="mode-separator">⇄</span>
+                <span class="mode-pill pill-locked">Locked in</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero reveal">
+            <div class="hero-content">
+                <div class="status-sticker badge color-violet">
+                    <span data-i18n="learning_prefix">currently learning:</span> <span id="learning-ticker">shaders</span>
+                </div>
+                <h1 id="hero-headline" class="split-text">
+                    <span class="headline-line headline-intro">Hi, I'm HEIN SOE KHANT.</span>
+                    <span class="headline-line headline-statement">I turn boundless imagination into playable reality. Fantasy inspired, always building.</span>
+                </h1>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary magnetic" data-cursor="scroll" data-i18n="btn_see_games">See my games</a>
+                    <a href="#about" class="btn btn-secondary magnetic" data-cursor="about" data-i18n="btn_about">About me</a>
+                    <a href="#contact" class="btn btn-secondary magnetic" data-cursor="say hi" data-i18n="btn_say_hi">Say hi</a>
+                </div>
+            </div>
+            
+            <div class="hero-3d-container" data-cursor="click me">
+                <canvas id="hero-canvas"></canvas>
+            </div>
+        </section>
+
+        <!-- Marquee of Passions -->
+        <div class="marquee-container reveal">
+            <div class="marquee-content" id="marquee-text">
+                <span>FANTASY WORLDS</span> <span>*</span>
+                <span>DONGHUA & ANIME</span> <span>*</span>
+                <span>MANHWA</span> <span>*</span>
+                <span>GAME DEV</span> <span>*</span>
+                <span>IMAGINATION TO REALITY</span> <span>*</span>
+                <span>FANTASY WORLDS</span> <span>*</span>
+                <span>DONGHUA & ANIME</span> <span>*</span>
+                <span>MANHWA</span> <span>*</span>
+                <span>GAME DEV</span> <span>*</span>
+                <span>IMAGINATION TO REALITY</span> <span>*</span>
+            </div>
+        </div>
+
+        <!-- About Hein Soe Khant (Photo & Story) -->
+        <section id="about" class="bento-section reveal">
+            <h2 data-i18n="about_title">About Me</h2>
+            <div class="about-bento">
+                <!-- Profile Photo Card -->
+                <div class="bento-card profile-photo-card magnetic-hover">
+                    <div class="photo-wrapper cutout-wrapper">
+                        <img src="profile-cutout.png" alt="HEIN SOE KHANT" class="profile-cutout-img">
+                    </div>
+                    <div class="photo-caption">
+                        <div class="photo-badges">
+                            <span class="role-sticker badge color-lime" data-i18n="photo_badge">Game Dev & Storyteller</span>
+                            <span class="role-sticker badge color-orange" data-i18n="photo_languages">Speaks 4 Languages</span>
+                        </div>
+                        <h3 class="photo-name">HEIN SOE KHANT</h3>
+                        <p class="photo-sub">Game Programmer</p>
+                    </div>
+                </div>
+
+                <!-- Bio & Vision Card -->
+                <div class="bento-card about-text-card">
+                    <div class="story-tag badge color-violet" data-i18n="story_tag">My Journey & Vision</div>
+                    <h3 data-i18n="bio_heading">Turning Boundless Imagination into Playable Reality</h3>
+                    <p data-i18n="bio_p1">
+                        Hi, I'm <strong>HEIN SOE KHANT</strong>. My world revolves around epic fantasy—deeply inspired by high-concept donghua, anime movies, and fantasy manhwa.
+                    </p>
+                    <p data-i18n="bio_p2">
+                        I chose the game development path because I want to bridge the gap between imagination and reality. In games, fantasy isn't just something you passively watch—it becomes an interactive universe you can touch, explore, and conquer.
+                    </p>
+                    
+                    <div class="about-subgrid">
+                        <div class="mini-card color-violet-card">
+                            <h4 data-i18n="hobbies_title">What Inspires Me</h4>
+                            <ul class="mono-list">
+                                <li data-i18n="hobby_1">Donghua & Anime Movies</li>
+                                <li data-i18n="hobby_2">Manhwa & Epic Worldbuilding</li>
+                                <li data-i18n="hobby_3">Fantasy Lore & Exploration</li>
+                            </ul>
+                        </div>
+                        <div class="mini-card color-lime-card">
+                            <h4 data-i18n="skills_title">What I'm Good At</h4>
+                            <ul class="mono-list">
+                                <li data-i18n="skill_1">Gameplay Logic & Systems</li>
+                                <li data-i18n="skill_2">C# / Unity / C++</li>
+                                <li data-i18n="skill_3">Rapid Prototyping</li>
+                                <li data-i18n="skill_4">Speaks 4 Languages (Multilingual)</li>
+                            </ul>
+                        </div>
+                        <div class="mini-card color-orange-card">
+                            <h4 data-i18n="learning_title">What I'm Learning</h4>
+                            <ul class="mono-list">
+                                <li data-i18n="learn_1">Shader Graph & Visual VFX</li>
+                                <li data-i18n="learn_2">Procedural Worlds</li>
+                                <li data-i18n="learn_3">Technical Art & Lighting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="bento-section reveal">
+            <h2 data-i18n="projects_title">Things I Built</h2>
+            <div class="bento-grid">
+                
+                <!-- Project 1: DUAL (Custom Engine C++ Souls-like) -->
+                <article class="bento-card project-card featured-project magnetic-hover project-card-interactive" data-project="dual" data-cursor="open ↗" tabindex="0" role="button" aria-label="Open DUAL Project Deep Dive">
+                    <div class="card-media">
+                        <video class="project-video" src="dual-gameplay.mp4" poster="dual-screenshot.png" autoplay loop muted playsinline preload="metadata" aria-label="DUAL Gameplay Preview"></video>
+                        <div class="media-overlay-badge badge color-lime" data-i18n="dual_preview_badge">Gameplay • In-Engine</div>
+                        <div class="media-hover-hint">
+                            <span data-i18n="click_to_open_hint">Click to open full project page ↗</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 data-i18n="project1_title">DUAL</h3>
+                            <span class="badge color-orange" data-i18n="dual_status">In Active Dev (2026~)</span>
+                        </div>
+                        <p class="desc project-card-teaser" data-i18n="project1_teaser">
+                            A dark fantasy Souls-like x Chivalry melee combat game built on a custom C++ game engine. Experience body impermanence, wandering spirit mechanics, and dynamic vessel possession.
+                        </p>
+
+                        <div class="tags">
+                            <span class="badge" data-i18n="tag_engine">Custom Game Engine</span>
+                            <span class="badge" data-i18n="tag_cpp">C++</span>
+                            <span class="badge" data-i18n="tag_shaders">Shaders</span>
+                            <span class="badge" data-i18n="tag_ecs">Hybrid ECS / OOP</span>
+                            <span class="badge" data-i18n="tag_research">Student Research</span>
+                            <span class="badge" data-i18n="tag_souls">Souls-like x Chivalry</span>
+                        </div>
+
+                        <div class="card-footer-action">
+                            <button type="button" class="btn btn-primary open-project-trigger" data-project="dual" data-i18n="btn_explore_dual">
+                                Open Project & Engine Deep Dive →
+                            </button>
+                            <span class="role-sticker badge color-lime" data-i18n="project1_role">Role: Solo Dev & Engine Programmer</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: 廻猫 - MEINEKO - (IGCC Game Jam Excellence Award) -->
+                <article class="bento-card project-card magnetic-hover project-card-interactive" data-project="meineko" data-cursor="open ↗" tabindex="0" role="button" aria-label="Open MEINEKO Project Deep Dive">
+                    <div class="card-media">
+                        <video class="project-video" src="meineko-gameplay.mp4" poster="meineko-thumb.jpg" autoplay loop muted playsinline preload="metadata" aria-label="MEINEKO Gameplay Preview"></video>
+                        <div class="media-overlay-badge badge color-orange" data-i18n="meineko_award_badge">🏆 優秀賞 / Excellence Award</div>
+                        <div class="media-hover-hint">
+                            <span data-i18n="click_to_open_hint">Click to open full project page ↗</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 data-i18n="project2_title">廻猫 - MEINEKO -</h3>
+                            <span class="badge color-orange" data-i18n="meineko_status">IGCC Game Jam 優秀賞</span>
+                        </div>
+                        <p class="desc project-card-teaser" data-i18n="project2_teaser">
+                            Fast Action × Card Strategy 2D platformer developed in a 10-day sprint for IGCC Game Jam. Theme: "Time and Again" (七転八起). Directed and led the 8-person team to win the Excellence Award.
+                        </p>
+                        <div class="tags">
+                            <span class="badge color-orange" data-i18n="meineko_tag_award">🏆 優秀賞 (Excellence Award)</span>
+                            <span class="badge" data-i18n="meineko_tag_role">Team Leader & Main Programmer</span>
+                            <span class="badge" data-i18n="meineko_tag_genre">Fast Action × Card Strategy</span>
+                            <span class="badge" data-i18n="meineko_tag_theme">Theme: Time and Again (七転八起)</span>
+                            <span class="badge" data-i18n="meineko_tag_sprint">10-Day Sprint</span>
+                        </div>
+                        <div class="card-footer-action">
+                            <button type="button" class="btn btn-secondary open-project-trigger" data-project="meineko" data-i18n="btn_explore_meineko">
+                                Open MEINEKO Deep Dive →
+                            </button>
+                            <span class="role-sticker badge color-orange" data-i18n="project2_role">Role: Game Director × Main Programmer × Leader</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Fail Log -->
+        <section id="fail-log" class="bento-section reveal">
+            <h2 data-i18n="fail_title">The Fail Log</h2>
+            <p class="section-sub" data-i18n="fail_sub">Things I broke, and what I learned.</p>
+            <div class="fail-grid">
+                <div class="bento-card fail-card">
+                    <div class="fail-header badge color-orange" data-i18n="fail1_header">Error: Custom Physics Engine</div>
+                    <p><strong data-i18n="fail_what_broke">What broke:</strong> <span data-i18n="fail1_broke">Tried writing a custom gravity and collision system instead of engine colliders. Players clipped straight into the void.</span></p>
+                    <p><strong data-i18n="fail_what_learned">What I learned:</strong> <span data-i18n="fail1_learned">Don't reinvent the wheel without a benchmark reason. Standard engine colliders are battle-tested.</span></p>
+                </div>
+                <div class="bento-card fail-card">
+                    <div class="fail-header badge color-violet" data-i18n="fail2_header">Error: Scope Creep</div>
+                    <p><strong data-i18n="fail_what_broke">What broke:</strong> <span data-i18n="fail2_broke">Planned an epic fantasy RPG with 10 classes and massive lore for a 48h game jam. Finished zero playable loops.</span></p>
+                    <p><strong data-i18n="fail_what_learned">What I learned:</strong> <span data-i18n="fail2_learned">Cut the scope in half, then cut it again. Nail the core gameplay loop first, then expand the world.</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact-section reveal">
+            <h2 data-i18n="contact_title">Let's talk.</h2>
+            <div class="contact-links">
+                <a href="mailto:contact@heinsoekhant.dev" class="btn btn-primary magnetic" data-cursor="say hi" data-i18n="btn_email">Email me</a>
+                <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-secondary magnetic" data-cursor="github">GitHub</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn btn-secondary magnetic" data-cursor="linkedin">LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- BIG PROJECT PAGE MODAL (FULL DEEP DIVE CASE STUDY)           -->
+    <!-- ============================================================ -->
+    <div id="project-page-modal" class="project-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-backdrop-blur" id="modal-backdrop-blur"></div>
+        <div class="project-modal-container">
+            
+            <!-- Sticky Top Bar -->
+            <header class="project-modal-nav">
+                <button type="button" class="btn btn-secondary modal-back-btn" id="modal-back-btn" data-cursor="back">
+                    <span class="back-arrow">←</span> <span data-i18n="modal_btn_back">Back to Portfolio</span>
+                </button>
+                <div class="modal-nav-meta">
+                    <span class="modal-nav-badge badge color-lime" id="modal-nav-badge">DUAL</span>
+                    <span class="modal-nav-hint" data-i18n="modal_press_esc">Press ESC or click outside to return</span>
+                </div>
+                <button type="button" class="modal-close-icon" id="modal-close-icon" aria-label="Close project page" data-cursor="close">✕</button>
+            </header>
+
+            <!-- Modal Content Wrapper -->
+            <div class="project-modal-body">
+                
+                <!-- DUAL Project Big Page -->
+                <article id="project-detail-dual" class="project-detail-article active">
+                    
+                    <!-- Header -->
+                    <div class="modal-project-header">
+                        <div class="modal-eyebrow">
+                            <span class="badge color-orange" data-i18n="dual_modal_status">Active Dev • Started Early 2026</span>
+                            <span class="badge color-lime" data-i18n="dual_modal_type">Student Research • Solo Dev</span>
+                            <span class="badge color-violet" data-i18n="dual_modal_tag_engine">Custom C++ Engine</span>
+                        </div>
+                        <h1 class="modal-project-title">DUAL</h1>
+                        <p class="modal-project-subtitle" data-i18n="dual_modal_subtitle">
+                            Dark Fantasy Souls-like x Chivalry Melee Combat • Custom C++ Game Engine • Student Research
+                        </p>
+                    </div>
+
+                    <!-- Hero Media Showcase: Gameplay Video -->
+                    <div class="modal-media-showcase">
+                        <div class="modal-media-frame video-frame">
+                            <video id="dual-modal-video" class="modal-hero-video" src="dual-gameplay.mp4" poster="dual-screenshot.png" controls playsinline preload="auto" loop aria-label="DUAL Gameplay Video Demonstration">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="modal-preview-badge badge color-lime" data-i18n="dual_video_badge">Gameplay Footage • In-Engine</div>
+                        </div>
+                        <p class="modal-media-caption" data-i18n="dual_modal_media_caption">
+                            ▲ In-Engine Gameplay Video: Real-time melee swordplay, camera physics, and HUD system captured live in the custom C++ engine.
+                        </p>
+                    </div>
+
+                    <!-- Meta Quick Stats -->
+                    <div class="modal-meta-grid">
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="meta_timeline_label">Timeline</div>
+                            <div class="meta-val" data-i18n="meta_timeline_val">Jan 2026 ~ Ongoing Active Development</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="meta_role_label">Role</div>
+                            <div class="meta-val" data-i18n="meta_role_val">Solo Developer, Engine & Gameplay Programmer</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="meta_tech_label">Core Technologies</div>
+                            <div class="meta-val">C++, Shaders, OpenGL / DirectX, Hybrid Architecture</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="meta_arch_label">Architecture</div>
+                            <div class="meta-val" data-i18n="meta_arch_val">Hybrid ECS / OOP Component System</div>
+                        </div>
+                    </div>
+
+                    <!-- Section 1: Concept & Story (What I Think About the Game) -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">⚔️</span>
+                            <span data-i18n="dual_sec1_title">The Game: Elden Ring / Dark Souls × Chivalry</span>
+                        </h2>
+                        
+                        <div class="modal-prose">
+                            <div class="concept-callout">
+                                <p data-i18n="dual_sec1_callout">
+                                    "I started DUAL because I wanted to unite the punishing atmosphere, dark fantasy dread, and exploration of <strong>Elden Ring / Dark Souls</strong> with the directional melee mastery, stamina dueling, and tactile weapon impact of <strong>Chivalry</strong>."
+                                </p>
+                            </div>
+
+                            <h3 data-i18n="dual_concept_lore_heading">The Core Mechanic: Impermanence of the Flesh & Ghost Possession</h3>
+                            <p data-i18n="dual_concept_lore_p1">
+                                In <strong>DUAL</strong>, the player's physical vessel is never permanent. When struck down in battle, you don't merely restart at a checkpoint. Instead, your soul detaches from the body, and you awaken as an ethereal <strong>wandering ghost/spirit</strong> cast across a foggy, perilous realm.
+                            </p>
+                            <p data-i18n="dual_concept_lore_p2">
+                                As a spirit, you journey through the mist to discover new dormant or defeated physical bodies across the map. Through the core mechanic <code>PossessVessel</code>, you inhabit these bodies, adapt to their unique weights and armaments, defeat dangerous adversaries, and seek to uncover the truth of a divided world where souls cannot cross to the other side.
+                            </p>
+                            <p data-i18n="dual_concept_lore_p3">
+                                <strong>Active Solo Development (2026~):</strong> Development began at the start of 2026 as a dedicated student research project. Both the gameplay systems and custom engine are continuously growing side by side.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Section 2: Custom C++ Engine (What I Think About the Engine) -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">⚙️</span>
+                            <span data-i18n="dual_sec2_title">The Custom Engine: Why Build in C++ from Scratch?</span>
+                        </h2>
+
+                        <div class="modal-prose">
+                            <p data-i18n="dual_engine_intro">
+                                Rather than relying on commercial black-box engines, I chose to build a custom game engine in C++ from the ground up. I wanted complete control over the rendering pipeline, shader systems, and memory layout—learning game development from the metal up.
+                            </p>
+                            <p data-i18n="dual_engine_p1">
+                                <strong>A Hybrid ECS / OOP Foundation:</strong> Instead of dogmatic pure ECS, the engine uses a pragmatic Hybrid Component architecture. This allows me to write complex hierarchical combat state machines and AI intuitively, while maintaining component modularity and runtime flexibility for the dynamic <code>PossessVessel</code> mechanic.
+                            </p>
+                            <p data-i18n="dual_engine_p2">
+                                The engine is built to grow directly alongside DUAL's game design. As features mature, deeper engine architecture deep-dives and technical breakdowns will be documented.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Section 3: Dev Journey: What I Failed, What I Gained, What I Learned -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">💡</span>
+                            <span data-i18n="dual_sec3_title">Dev Reflections: What I Failed, What I Gained & What I Learned</span>
+                        </h2>
+
+                        <div class="reflections-grid">
+                            
+                            <!-- Card 1: What I Failed / Struggled With -->
+                            <div class="reflection-card color-orange-card">
+                                <div class="reflection-card-header">
+                                    <span class="badge color-orange" data-i18n="ref_fail_badge">Error / Struggle</span>
+                                    <h3 data-i18n="ref_fail_title">What I Failed & Struggled With</h3>
+                                </div>
+                                <ul class="mono-list">
+                                    <li data-i18n="ref_fail_item1"><strong>Low-Level Complexity:</strong> Wrestling with matrix transforms, custom camera collisions, and shader debugging without visual tools led to countless game-crashing bugs early on.</li>
+                                    <li data-i18n="ref_fail_item2"><strong>Combat Spacing & Physics:</strong> Replicating Chivalry-style directional melee hitboxes from scratch in C++ was far harder than expected—early hitboxes clipped through terrain or lagged behind animations.</li>
+                                    <li data-i18n="ref_fail_item3"><strong>Scope Creep vs. Tooling:</strong> At first, I tried to write every engine feature under the sun before nailing the core possession loop. I had to rein myself in and focus on what the game actually needed.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Card 2: What I Gained -->
+                            <div class="reflection-card color-lime-card">
+                                <div class="reflection-card-header">
+                                    <span class="badge color-lime" data-i18n="ref_gain_badge">Gained & Achieved</span>
+                                    <h3 data-i18n="ref_gain_title">What I Gained</h3>
+                                </div>
+                                <ul class="mono-list">
+                                    <li data-i18n="ref_gain_item1"><strong>Deep C++ & Graphics Mastery:</strong> An intimate understanding of memory management, cache locality, shaders, and rendering pipelines that no high-level engine tutorial could ever teach.</li>
+                                    <li data-i18n="ref_gain_item2"><strong>Complete Architectural Freedom:</strong> Every single engine system is tailored precisely to DUAL's unique spirit possession mechanics—no fighting another engine's assumptions.</li>
+                                    <li data-i18n="ref_gain_item3"><strong>Creative Confidence:</strong> Seeing an armored knight walk across misty peaks rendered by my own engine code gave me unshakeable confidence as a solo student developer.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Card 3: What I Learned -->
+                            <div class="reflection-card color-violet-card">
+                                <div class="reflection-card-header">
+                                    <span class="badge color-violet" data-i18n="ref_learn_badge">Takeaways</span>
+                                    <h3 data-i18n="ref_learn_title">What I Learned</h3>
+                                </div>
+                                <ul class="mono-list">
+                                    <li data-i18n="ref_learn_item1"><strong>Build for the Game, Not for Dogma:</strong> A pragmatic hybrid architecture that lets you ship features easily beats pure architectural theory every day of the week.</li>
+                                    <li data-i18n="ref_learn_item2"><strong>Fail Fast & Iterate:</strong> The only way to truly understand a low-level engine bug is to break it, trace the pointers, and rebuild it stronger.</li>
+                                    <li data-i18n="ref_learn_item3"><strong>Turning Imagination into Reality:</strong> Big fantasy visions (inspired by donghua, anime, and manhwa) require deep technical discipline to become playable games.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- Bottom Return Action -->
+                    <div class="modal-bottom-actions">
+                        <button type="button" class="btn btn-primary modal-back-btn-bottom" data-cursor="back">
+                            ← <span data-i18n="modal_btn_back">Back to Portfolio</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- MEINEKO Project Deep Dive Page -->
+                <article id="project-detail-meineko" class="project-detail-article">
+                    <div class="modal-project-header">
+                        <div class="modal-eyebrow">
+                            <span class="badge color-orange" data-i18n="meineko_eyebrow_award">🏆 優秀賞 (Excellence Award)</span>
+                            <span class="badge color-lime" data-i18n="meineko_eyebrow_jam">IGCC Game Jam 2026</span>
+                            <span class="badge color-violet" data-i18n="meineko_eyebrow_team">Team of 8 • 10-Day Sprint</span>
+                        </div>
+                        <h1 class="modal-project-title">廻猫 - MEINEKO -</h1>
+                        <p class="modal-project-subtitle" data-i18n="meineko_modal_subtitle">
+                            2D Fast Action × Card Strategy • Theme: Time and Again (七転八起) • IGCC Game Jam Excellence Award Winner
+                        </p>
+                    </div>
+
+                    <!-- Hero Media Showcase: Full PR Movie & Gameplay Video -->
+                    <div class="modal-media-showcase">
+                        <div class="modal-media-frame video-frame">
+                            <video id="meineko-modal-video" class="modal-hero-video" src="meineko-gameplay.mp4" poster="meineko-thumb.jpg" controls playsinline preload="auto" loop aria-label="廻猫 MEINEKO Official PR Movie and Gameplay">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="modal-preview-badge badge color-orange" data-i18n="meineko_video_badge">🏆 優秀賞 受賞作 PRムービー</div>
+                        </div>
+                        <p class="modal-media-caption" data-i18n="meineko_modal_media_caption">
+                            ▲ Official PR Presentation & Gameplay Movie: Team A concept breakdown, theme interpretation, team member roles, and live gameplay showcase.
+                        </p>
+                    </div>
+
+                    <!-- Meta Quick Stats -->
+                    <div class="modal-meta-grid">
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="meineko_meta_event_label">Event / Contest</div>
+                            <div class="meta-val" data-i18n="meineko_meta_event_val">IGCC Game Jam (10-Day Sprint)</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="meineko_meta_award_label">Result / Award</div>
+                            <div class="meta-val text-accent" data-i18n="meineko_meta_award_val">🏆 優秀賞 (Excellence Award)</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="meineko_meta_role_label">My Role</div>
+                            <div class="meta-val" data-i18n="meineko_meta_role_val">Game Director × Main Programmer × Team Leader</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="meineko_meta_theme_label">Jam Theme</div>
+                            <div class="meta-val" data-i18n="meineko_meta_theme_val">Time and Again (七転八起 / 何度も何度も)</div>
+                        </div>
+                    </div>
+
+                    <!-- Section 1: Concept & Worldbuilding (Theme: Time and Again) -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">⛩️</span>
+                            <span data-i18n="meineko_sec1_title">Game Concept: Fast Action × Card Strategy</span>
+                        </h2>
+                        
+                        <div class="modal-prose">
+                            <div class="concept-callout">
+                                <p data-i18n="meineko_sec1_callout">
+                                    "When given the jam theme <strong>'Time and Again'</strong>, we interpreted it as the Japanese proverb <strong>「七転八起」 (Fall seven times, stand up eight)</strong> — translating <em>'again and again'</em> into a time loop seamlessly woven into the worldbuilding and folklore."
+                                </p>
+                            </div>
+
+                            <h3 data-i18n="meineko_core_heading">Swift Cat Controls × Tactical Card Selection</h3>
+                            <p data-i18n="meineko_core_p1">
+                                <strong>廻猫 - MEINEKO -</strong> is a high-speed 2D action platformer where players control an agile spirit cat navigating a mist-shrouded shrine forest. Combining rapid acrobatics (wall climbs, quick dashes, vertical leaps) with real-time tactical card selection, the player activates sacred talisman cards (札) to unleash elemental slashes, barrier wards, and special traversal buffs.
+                            </p>
+                            <p data-i18n="meineko_core_p2">
+                                <strong>The 9-Lives Time Loop:</strong> Reinterpreting the cat's nine lives through the lens of reincarnation and time loops, each defeat is not a failure, but a cycle of learning that advances the narrative and reveals the hidden truth behind the shrine: <em>"Can you uncover the truth behind the story?"</em>
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Section 2: Poster & Visual Showcase -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">🎨</span>
+                            <span data-i18n="meineko_sec2_title">Official Poster & Visual Aesthetics</span>
+                        </h2>
+                        <div class="meineko-poster-showcase">
+                            <div class="poster-frame">
+                                <img src="meineko-poster-web.png" alt="廻猫 MEINEKO Official B1 Poster" class="meineko-poster-img" loading="lazy">
+                                <span class="badge color-orange poster-badge" data-i18n="meineko_poster_badge">Team A Official B1 Poster</span>
+                            </div>
+                            <div class="poster-details">
+                                <h3 data-i18n="meineko_poster_heading">Art Direction & Yokai Folklore Aesthetic</h3>
+                                <p data-i18n="meineko_poster_desc1">
+                                    Illustrated by team artist <strong>Zi Ning</strong> for the game jam showcase. The visual identity merges traditional Japanese Shinto shrine mysticism, ofuda talismans, ghostly turquoise soul flames, and expressive pixel-art characters.
+                                </p>
+                                <p data-i18n="meineko_poster_desc2">
+                                    The watchful golden eye lingering in the darkness hints at the supreme deity/yokai overseeing the forest time loop that the player must overcome.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 3: Technical Architecture & Team Structure -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">⚙️</span>
+                            <span data-i18n="meineko_sec3_title">Team Leadership & Technical Responsibilities</span>
+                        </h2>
+
+                        <div class="modal-prose">
+                            <p data-i18n="meineko_tech_intro">
+                                As <strong>Game Director, Main Programmer, and Team Leader</strong> of Team A (8 members), I was responsible for uniting the vision, establishing the development pipeline, and implementing the core gameplay systems:
+                            </p>
+                            
+                            <div class="team-roles-grid">
+                                <div class="role-card">
+                                    <div class="role-card-header">
+                                        <span class="badge color-lime">HEIN (Lead & Main Dev)</span>
+                                        <h4 data-i18n="meineko_my_role_title">Director & Core Programmer</h4>
+                                    </div>
+                                    <ul class="mono-list">
+                                        <li data-i18n="meineko_my_task1"><strong>Card System (札システム):</strong> Designed and implemented the real-time card deck selection, elemental triggers, cooldown states, and player ability modifications.</li>
+                                        <li data-i18n="meineko_my_task2"><strong>Build & Integration Pipeline:</strong> Established Git workflows, automated daily playable builds, and integrated work across 5 programmers and 3 artists with zero merge conflicts.</li>
+                                        <li data-i18n="meineko_my_task3"><strong>Game Integration & Direction:</strong> Maintained scope discipline, directed overall feel (game feel, camera shake, feedback), and balanced difficulty across the 10 days.</li>
+                                    </ul>
+                                </div>
+                                <div class="role-card">
+                                    <div class="role-card-header">
+                                        <span class="badge color-violet">Team A Members</span>
+                                        <h4 data-i18n="meineko_team_credits_title">Team of 8 • Credits & Roles</h4>
+                                    </div>
+                                    <ul class="mono-list">
+                                        <li data-i18n="meineko_credits_art"><strong>Artists (3):</strong> Zi Ning (Character Sprites, Background, B1 Poster, Cutscenes), Sakura (Character, Background, Design, Animation), Asuma (Art & Visual Assets)</li>
+                                        <li data-i18n="meineko_credits_prog"><strong>Programmers (5):</strong> HEIN (Leader / Core Systems & Integration), Koushi (UI, BGM, Title Screen, HP Bars, Credits), Tetsuya (System Adjustments, Audio), Hinata (Dialogue System), Ethan (Basic Enemy Behavior)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 4: What I Gained & Learned as a Team Leader -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">💡</span>
+                            <span data-i18n="meineko_sec4_title">Team Leadership Reflections: What I Gained & Learned</span>
+                        </h2>
+
+                        <div class="reflections-grid">
+                            <!-- Card 1: Team Management & Communication -->
+                            <div class="reflection-card color-orange-card">
+                                <div class="reflection-card-header">
+                                    <span class="badge color-orange" data-i18n="meineko_ref1_badge">Management & Trust</span>
+                                    <h3 data-i18n="meineko_ref1_title">Team Communication & Direction</h3>
+                                </div>
+                                <p data-i18n="meineko_ref1_text">
+                                    Leading an 8-person team in a high-intensity 10-day sprint taught me that a leader's chief responsibility is clarity and active listening. I learned to bridge communication between artists and programmers, translating visual ideas into actionable code tasks while keeping everyone aligned on the core concept.
+                                </p>
+                            </div>
+
+                            <!-- Card 2: Mutual Support & Advancing Together -->
+                            <div class="reflection-card color-lime-card">
+                                <div class="reflection-card-header">
+                                    <span class="badge color-lime" data-i18n="meineko_ref2_badge">Collaboration & Support</span>
+                                    <h3 data-i18n="meineko_ref2_title">Finish Your Part, Help Others Advance</h3>
+                                </div>
+                                <p data-i18n="meineko_ref2_text">
+                                    In our team collaboration, every member owned their assigned part—and whenever anyone finished their tasks early, they immediately checked on other teammates to see who needed help. Nobody worked in isolation or sat idle; we actively reached out to solve blockers, assist with implementations, and ensure the entire 8-person team advanced together to hit the deadline.
+                                </p>
+                            </div>
+
+                            <!-- Card 3: Finishing the Product & Winning Excellence Award -->
+                            <div class="reflection-card color-violet-card">
+                                <div class="reflection-card-header">
+                                    <span class="badge color-violet" data-i18n="meineko_ref3_badge">Outcome</span>
+                                    <h3 data-i18n="meineko_ref3_title">Delivering Under 10-Day Deadline</h3>
+                                </div>
+                                <p data-i18n="meineko_ref3_text">
+                                    A game jam is won by the finish and polish, not unrealized ambition. By ruthless prioritization and relentless daily integration, we submitted the most complete, cohesive, and enjoyable game build in the jam, earning the prestigious <strong>Excellence Award (優秀賞)</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Bottom Return Action -->
+                    <div class="modal-bottom-actions">
+                        <button type="button" class="btn btn-primary modal-back-btn-bottom" data-cursor="back">
+                            ← <span data-i18n="modal_btn_back">Back to Portfolio</span>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="background.js?v=17"></script>
+    <script type="module" src="script.js?v=17"></script>
+</body>
+</html>

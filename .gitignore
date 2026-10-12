@@ -1,0 +1,13 @@
+# Build & Scratch Artifacts
+scratch/
+*.py
+
+# Large raw source media (optimized web versions are used instead)
+meineko-video.mp4
+meineko-poster.png
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
