@@ -309,6 +309,40 @@
                         </div>
                     </div>
                 </article>
+
+                <!-- Project 5: Balloon Fight Recreation & Mechanics Research -->
+                <article class="bento-card project-card magnetic-hover project-card-interactive" data-project="balloonfight" data-cursor="open ↗" tabindex="0" role="button" aria-label="Open Balloon Fight Project Deep Dive">
+                    <div class="card-media">
+                        <video class="project-video" src="balloonfight-gameplay.mp4" poster="balloonfight-thumb.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Balloon Fight Gameplay Preview"></video>
+                        <div class="media-overlay-badge badge color-cyan" data-i18n="balloonfight_status_badge">🔬 Mechanics Research & Replication</div>
+                        <div class="media-hover-hint">
+                            <span data-i18n="click_to_open_hint">Click to open full project page ↗</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 data-i18n="project5_title">Balloon Fight Recreation</h3>
+                            <span class="badge color-cyan" data-i18n="balloonfight_status">🔬 85% Mechanics Recreated</span>
+                        </div>
+                        <p class="desc project-card-teaser" data-i18n="project5_teaser">
+                            A 1-month reverse-engineering study of Nintendo's classic Balloon Fight. Accurately recreated player flight inertia, flapping physics, balloon popping states, and pixel animations (~85% complete). A foundational research project on how iconic games feel and move.
+                        </p>
+                        <div class="tags">
+                            <span class="badge color-cyan" data-i18n="balloonfight_tag_research">🔬 Retro Physics Research</span>
+                            <span class="badge" data-i18n="balloonfight_tag_deadline">1-Month Deadline</span>
+                            <span class="badge" data-i18n="balloonfight_tag_completion">85% Core Complete</span>
+                            <span class="badge" data-i18n="balloonfight_tag_physics">Inertial Flapping Physics</span>
+                            <span class="badge" data-i18n="balloonfight_tag_anim">Sprite & State Replication</span>
+                            <span class="badge" data-i18n="balloonfight_tag_learning">Research as a Game Dev Skill</span>
+                        </div>
+                        <div class="card-footer-action">
+                            <button type="button" class="btn btn-secondary open-project-trigger" data-project="balloonfight" data-i18n="btn_explore_balloonfight">
+                                Open Research Deep Dive →
+                            </button>
+                            <span class="role-sticker badge color-cyan" data-i18n="project5_role">Role: Solo Physics & Mechanics Researcher</span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -1000,11 +1034,158 @@
                     </div>
                 </article>
 
+                <!-- ============================================== -->
+                <!-- PROJECT 5: BALLOON FIGHT RECREATION (Retro Mechanics & Physics Research) -->
+                <!-- ============================================== -->
+                <article id="project-detail-balloonfight" class="project-detail-article">
+                    <div class="modal-article-header">
+                        <div class="modal-eyebrow-row">
+                            <span class="badge color-cyan" data-i18n="balloonfight_eyebrow_type">🔬 Retro Mechanics Research</span>
+                            <span class="badge" data-i18n="balloonfight_eyebrow_time">1-Month Research Deadline</span>
+                            <span class="badge" data-i18n="balloonfight_eyebrow_status">85% Core Completed</span>
+                        </div>
+                        <h1 class="modal-project-title" data-i18n="balloonfight_modal_title">Balloon Fight Recreation</h1>
+                        <p class="modal-project-subtitle" data-i18n="balloonfight_modal_subtitle">
+                            Reverse-Engineering Classic NES Flight Physics & Inertia • 85% Core Replication • The Power of Game Research
+                        </p>
+                    </div>
+
+                    <!-- Hero Media Showcase: Full Gameplay Recording -->
+                    <div class="modal-media-showcase">
+                        <div class="modal-media-frame video-frame">
+                            <video id="balloonfight-modal-video" class="modal-hero-video" src="balloonfight-gameplay.mp4" poster="balloonfight-thumb.jpg" controls playsinline preload="auto" loop aria-label="Balloon Fight Recreation Gameplay Video">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="modal-preview-badge badge color-cyan" data-i18n="balloonfight_video_badge">🎮 Research Prototype Footage</div>
+                        </div>
+                        <p class="modal-media-caption" data-i18n="balloonfight_modal_media_caption">
+                            ▲ Balloon Fight Recreation Footage: Accurate player dual-balloon flapping flight, inertial momentum and gravity tuning, cloud collision, and balloon-popping transitions.
+                        </p>
+                    </div>
+
+                    <!-- Meta Quick Stats -->
+                    <div class="modal-meta-grid">
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="balloonfight_meta_type_label">Project Type</div>
+                            <div class="meta-val" data-i18n="balloonfight_meta_type_val">1-Month Mechanics Research Sprint</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="balloonfight_meta_target_label">Research Target</div>
+                            <div class="meta-val text-accent" data-i18n="balloonfight_meta_target_val">Nintendo NES / Famicom (1984 Classic)</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="balloonfight_meta_role_label">My Role</div>
+                            <div class="meta-val" data-i18n="balloonfight_meta_role_val">Solo Physics & Mechanics Researcher</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="balloonfight_meta_rate_label">Implementation Rate</div>
+                            <div class="meta-val" data-i18n="balloonfight_meta_rate_val">~85% Core Mechanics Achieved</div>
+                        </div>
+                    </div>
+
+                    <!-- Section 1: The Research Mission & Physics Replication -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">🎈</span>
+                            <span data-i18n="balloonfight_sec1_title">The Mission: Reverse-Engineering Classic Flight Feel</span>
+                        </h2>
+                        
+                        <div class="modal-prose">
+                            <div class="concept-callout">
+                                <p data-i18n="balloonfight_sec1_callout">
+                                    "Balloon Fight (originally programmed by Satoru Iwata) is legendary for its floating flight physics. It feels simple to play, yet reproducing that delicate balance of buoyant gravity, drag friction, and flapping impulse is exceptionally tricky. I set a strict 1-month deadline to research and replicate its mechanics from scratch."
+                                </p>
+                            </div>
+
+                            <h3 data-i18n="balloonfight_physics_heading">Inertia, Gravity Curves & Flapping Impulse</h3>
+                            <p data-i18n="balloonfight_physics_p1">
+                                In <strong>Balloon Fight</strong>, movement is not standard binary platforming. The player applies upward thrust by tapping the flap button, which adds vertical impulse against a gentle buoyant gravity. Left and right inputs introduce horizontal acceleration that retains momentum, creating the game's distinctive 'floating-on-air' sensation.
+                            </p>
+                            <p data-i18n="balloonfight_physics_p2">
+                                <strong>Faithful Animation & State Replication:</strong> I extracted and matched the original sprite animation states: flapping wings upon button press, idle floating drift, dual-balloon to single-balloon pop transition upon impact, and screen-wrapping horizontal boundaries.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Section 2: Technical Breakdown & Honest Gaps (85% Completion) -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">📊</span>
+                            <span data-i18n="balloonfight_sec2_title">Technical Evaluation: What Succeeded & What Fell Short (85%)</span>
+                        </h2>
+                        <div class="modal-prose">
+                            <div class="concept-callout">
+                                <p data-i18n="balloonfight_sec2_callout">
+                                    "By the end of the 1-month timeline, I achieved roughly <strong>85% completion</strong> of the fundamental game. The player flight physics and controls matched the feel of the original, but time constraints revealed clear gaps in enemy intelligence and environmental hazards."
+                                </p>
+                            </div>
+                            <h3 data-i18n="balloonfight_breakdown_heading">Accomplishments vs. Remaining Gaps</h3>
+                            <p data-i18n="balloonfight_breakdown_p1">
+                                <strong>What Was Accomplished (~85%):</strong> Faithful player inertia and flight feel, double-balloon life system, platform landing physics, cloud particle explosions, and HUD scoring replication. Controlling the character feels remarkably close to the original NES masterpiece.
+                            </p>
+                            <p data-i18n="balloonfight_breakdown_p2">
+                                <strong>What Remained Incomplete (~15%):</strong> The enemy bird AI state machine (patrolling, ascending when player approaches, inflating backup balloons on platforms) was only partially implemented. Stage hazards like the hungry giant fish lurking beneath the water and erratic lightning sparks were left out as the 1-month deadline arrived.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Section 3: Professional Growth & Research Superpower -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">💡</span>
+                            <span data-i18n="balloonfight_sec3_title">Professional Growth: Why Research is Essential for Game Developers</span>
+                        </h2>
+                        
+                        <div class="modal-prose">
+                            <p data-i18n="balloonfight_learn_intro">
+                                Undertaking this project taught me that <strong>game research and reverse-engineering</strong> are vital superpowers for any serious game developer. It fundamentally changed how I view mechanics and feel:
+                            </p>
+                            
+                            <div class="reflections-grid">
+                                <div class="reflection-card color-cyan-card">
+                                    <div class="reflection-card-header">
+                                        <span class="badge color-cyan" data-i18n="balloonfight_card1_badge">Mechanics Research</span>
+                                        <h3 data-i18n="balloonfight_card1_title">Frame-by-Frame Dissection</h3>
+                                    </div>
+                                    <p data-i18n="balloonfight_card1_desc">
+                                        Learned how to break down existing games frame-by-frame: measuring acceleration curves, jump arcs, input buffering, and subtle animation cues rather than guessing numbers.
+                                    </p>
+                                </div>
+                                <div class="reflection-card color-orange-card">
+                                    <div class="reflection-card-header">
+                                        <span class="badge color-orange" data-i18n="balloonfight_card2_badge">Tactile Tuning</span>
+                                        <h3 data-i18n="balloonfight_card2_title">Math Behind 'Game Feel'</h3>
+                                    </div>
+                                    <p data-i18n="balloonfight_card2_desc">
+                                        Discovered that 'feel' is not magical—it is precise math. Tuning inertia decay, drag coefficients, and impulse curves taught me how to make controls feel immediately tactile and responsive.
+                                    </p>
+                                </div>
+                                <div class="reflection-card color-lime-card">
+                                    <div class="reflection-card-header">
+                                        <span class="badge color-lime" data-i18n="balloonfight_card3_badge">A Developer's Asset</span>
+                                        <h3 data-i18n="balloonfight_card3_title">A Lifelong Superpower</h3>
+                                    </div>
+                                    <p data-i18n="balloonfight_card3_desc">
+                                        Researching prior art accelerates innovation. The analytical skills gained here directly empowered the combat precision in MEINEKO and the custom engine mechanics in DUAL.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Bottom Return Action -->
+                    <div class="modal-bottom-actions">
+                        <button type="button" class="btn btn-primary modal-back-btn-bottom" data-cursor="back">
+                            ← <span data-i18n="modal_btn_back">Back to Portfolio</span>
+                        </button>
+                    </div>
+                </article>
+
             </div>
         </div>
     </div>
     
-    <script type="module" src="background.js?v=23"></script>
-    <script type="module" src="script.js?v=23"></script>
+    <script type="module" src="background.js?v=24"></script>
+    <script type="module" src="script.js?v=24"></script>
 </body>
 </html>

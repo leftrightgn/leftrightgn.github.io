@@ -232,12 +232,18 @@ body[data-mode="locked"] .badge {
 .color-lime { background: var(--accent-lime); color: #111; }
 .color-violet { background: var(--accent-violet); color: #fff; }
 .color-orange { background: var(--accent-orange); color: #111; }
+.color-cyan { background: #00D2FF; color: #111; }
 
 body[data-mode="locked"] .color-violet,
 body[data-mode="locked"] .color-orange {
     background: transparent;
     border-color: var(--accent-lime);
     color: var(--accent-lime);
+}
+body[data-mode="locked"] .color-cyan {
+    background: transparent;
+    border-color: #00D2FF;
+    color: #00D2FF;
 }
 body[data-mode="locked"] .color-lime {
     background: var(--accent-lime);
@@ -1439,9 +1445,13 @@ body[data-mode="locked"] .reflection-card-header {
 .color-orange-card h3 { color: var(--accent-orange); }
 .color-lime-card h3 { color: var(--accent-lime); }
 .color-violet-card h3 { color: var(--accent-violet); }
+.color-cyan-card h3 { color: #00A3FF; }
 body[data-mode="locked"] .color-orange-card h3,
 body[data-mode="locked"] .color-violet-card h3 {
     color: var(--accent-lime);
+}
+body[data-mode="locked"] .color-cyan-card h3 {
+    color: #00D2FF;
 }
 
 /* Modal Bottom Actions */

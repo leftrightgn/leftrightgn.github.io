@@ -163,6 +163,61 @@ const TRANSLATIONS = {
         ultimamanus_card3_title: "The Fuel for Future Wins",
         ultimamanus_card3_desc: "This exact shift in planning directly enabled me to lead an 8-person team to the Excellence Award in MEINEKO (10-day sprint) and win 1st Prize (Honor of Excellence) in TeTrash (DePaul × Trident Game Jam).",
 
+        // Homepage Card 5 (Balloon Fight Recreation)
+        project5_title: "Balloon Fight Recreation",
+        balloonfight_status_badge: "🔬 Mechanics Research & Replication",
+        balloonfight_status: "🔬 85% Mechanics Recreated",
+        project5_teaser: "A 1-month reverse-engineering study of Nintendo's classic Balloon Fight. Accurately recreated player flight inertia, flapping physics, balloon popping states, and pixel animations (~85% complete). A foundational research project on how iconic games feel and move.",
+        btn_explore_balloonfight: "Open Research Deep Dive →",
+        project5_role: "Role: Solo Physics & Mechanics Researcher",
+        balloonfight_tag_research: "🔬 Retro Physics Research",
+        balloonfight_tag_deadline: "1-Month Deadline",
+        balloonfight_tag_completion: "85% Core Complete",
+        balloonfight_tag_physics: "Inertial Flapping Physics",
+        balloonfight_tag_anim: "Sprite & State Replication",
+        balloonfight_tag_learning: "Research as a Game Dev Skill",
+
+        // Modal Balloon Fight
+        balloonfight_eyebrow_type: "🔬 Retro Mechanics Research",
+        balloonfight_eyebrow_time: "1-Month Research Deadline",
+        balloonfight_eyebrow_status: "85% Core Completed",
+        balloonfight_modal_title: "Balloon Fight Recreation",
+        balloonfight_modal_subtitle: "Reverse-Engineering Classic NES Flight Physics & Inertia • 85% Core Replication • The Power of Game Research",
+        balloonfight_video_badge: "🎮 Research Prototype Footage",
+        balloonfight_modal_media_caption: "▲ Balloon Fight Recreation Footage: Accurate player dual-balloon flapping flight, inertial momentum and gravity tuning, cloud collision, and balloon-popping transitions.",
+        balloonfight_meta_type_label: "Project Type",
+        balloonfight_meta_type_val: "1-Month Mechanics Research Sprint",
+        balloonfight_meta_target_label: "Research Target",
+        balloonfight_meta_target_val: "Nintendo NES / Famicom (1984 Classic)",
+        balloonfight_meta_role_label: "My Role",
+        balloonfight_meta_role_val: "Solo Physics & Mechanics Researcher",
+        balloonfight_meta_rate_label: "Implementation Rate",
+        balloonfight_meta_rate_val: "~85% Core Mechanics Achieved",
+
+        balloonfight_sec1_title: "The Mission: Reverse-Engineering Classic Flight Feel",
+        balloonfight_sec1_callout: "\"Balloon Fight (originally programmed by Satoru Iwata) is legendary for its floating flight physics. It feels simple to play, yet reproducing that delicate balance of buoyant gravity, drag friction, and flapping impulse is exceptionally tricky. I set a strict 1-month deadline to research and replicate its mechanics from scratch.\"",
+        balloonfight_physics_heading: "Inertia, Gravity Curves & Flapping Impulse",
+        balloonfight_physics_p1: "In <strong>Balloon Fight</strong>, movement is not standard binary platforming. The player applies upward thrust by tapping the flap button, which adds vertical impulse against a gentle buoyant gravity. Left and right inputs introduce horizontal acceleration that retains momentum, creating the game's distinctive 'floating-on-air' sensation.",
+        balloonfight_physics_p2: "<strong>Faithful Animation & State Replication:</strong> I extracted and matched the original sprite animation states: flapping wings upon button press, idle floating drift, dual-balloon to single-balloon pop transition upon impact, and screen-wrapping horizontal boundaries.",
+
+        balloonfight_sec2_title: "Technical Evaluation: What Succeeded & What Fell Short (85%)",
+        balloonfight_sec2_callout: "\"By the end of the 1-month timeline, I achieved roughly <strong>85% completion</strong> of the fundamental game. The player flight physics and controls matched the feel of the original, but time constraints revealed clear gaps in enemy intelligence and environmental hazards.\"",
+        balloonfight_breakdown_heading: "Accomplishments vs. Remaining Gaps",
+        balloonfight_breakdown_p1: "<strong>What Was Accomplished (~85%):</strong> Faithful player inertia and flight feel, double-balloon life system, platform landing physics, cloud particle explosions, and HUD scoring replication. Controlling the character feels remarkably close to the original NES masterpiece.",
+        balloonfight_breakdown_p2: "<strong>What Remained Incomplete (~15%):</strong> The enemy bird AI state machine (patrolling, ascending when player approaches, inflating backup balloons on platforms) was only partially implemented. Stage hazards like the hungry giant fish lurking beneath the water and erratic lightning sparks were left out as the 1-month deadline arrived.",
+
+        balloonfight_sec3_title: "Professional Growth: Why Research is Essential for Game Developers",
+        balloonfight_learn_intro: "Undertaking this project taught me that <strong>game research and reverse-engineering</strong> are vital superpowers for any serious game developer. It fundamentally changed how I view mechanics and feel:",
+        balloonfight_card1_badge: "Mechanics Research",
+        balloonfight_card1_title: "Frame-by-Frame Dissection",
+        balloonfight_card1_desc: "Learned how to break down existing games frame-by-frame: measuring acceleration curves, jump arcs, input buffering, and subtle animation cues rather than guessing numbers.",
+        balloonfight_card2_badge: "Tactile Tuning",
+        balloonfight_card2_title: "Math Behind 'Game Feel'",
+        balloonfight_card2_desc: "Discovered that 'feel' is not magical—it is precise math. Tuning inertia decay, drag coefficients, and impulse curves taught me how to make controls feel immediately tactile and responsive.",
+        balloonfight_card3_badge: "A Developer's Asset",
+        balloonfight_card3_title: "A Lifelong Superpower",
+        balloonfight_card3_desc: "Researching prior art accelerates innovation. The analytical skills gained here directly empowered the combat precision in MEINEKO and the custom engine mechanics in DUAL.",
+
         // Modal MEINEKO
         meineko_eyebrow_award: "🏆 優秀賞 (Excellence Award)",
         meineko_eyebrow_jam: "IGCC Game Jam 2026",
@@ -461,6 +516,61 @@ const TRANSLATIONS = {
         ultimamanus_card3_badge: "実績への結実",
         ultimamanus_card3_title: "『廻猫』優秀賞＆『TeTrash』最優秀賞への結実",
         ultimamanus_card3_desc: "この失敗で培った計画力と工程管理こそが、その後の『廻猫 - MEINEKO -』（8人チーム・10日間スプリントでの優秀賞）や、『TeTrash』（日米合同ジャムでの最優秀賞受賞）という最高の結果を生み出す原動力となりました。",
+
+        // Homepage Card 5 (Balloon Fight Recreation)
+        project5_title: "バルーンファイト挙動研究・再現",
+        balloonfight_status_badge: "🔬 挙動研究・物理再現",
+        balloonfight_status: "🔬 基本挙動85%再現達成",
+        project5_teaser: "任天堂の不朽の名作『バルーンファイト』を1ヶ月の期限でリバースエンジニアリング・再現した研究開発プロジェクト。独特の浮遊感・慣性物理・羽ばたき挙動・風船破壊遷移をフレーム単位で解析し、基本挙動の約85%を再現。「リサーチ（研究力）こそがゲーム開発者の必須能力である」と確信した原点。",
+        btn_explore_balloonfight: "挙動研究の詳細を見る →",
+        project5_role: "担当: 物理挙動研究・プログラマー",
+        balloonfight_tag_research: "🔬 レトロ物理リサーチ",
+        balloonfight_tag_deadline: "1ヶ月短期開発",
+        balloonfight_tag_completion: "基本実装85%達成",
+        balloonfight_tag_physics: "慣性浮遊物理・羽ばたき挙動",
+        balloonfight_tag_anim: "スプライト状態遷移再現",
+        balloonfight_tag_learning: "開発者としてのリサーチ力",
+
+        // Modal Balloon Fight
+        balloonfight_eyebrow_type: "🔬 レトロゲーム挙動研究",
+        balloonfight_eyebrow_time: "1ヶ月短期研究開発",
+        balloonfight_eyebrow_status: "基本挙動85%再現達成",
+        balloonfight_modal_title: "バルーンファイト挙動研究・再現",
+        balloonfight_modal_subtitle: "名作NESの浮遊慣性・飛行物理のリバースエンジニアリング • 基本挙動85%再現 • リサーチがもたらす開発力",
+        balloonfight_video_badge: "🎮 研究実機プレイ映像",
+        balloonfight_modal_media_caption: "▲ バルーンファイト再現実機映像：風船2個による羽ばたき浮遊、慣性と重力の物理チューニング、雲との接触、風船破壊時の状態遷移アニメーション。",
+        balloonfight_meta_type_label: "制作区分",
+        balloonfight_meta_type_val: "1ヶ月短期挙動研究プロジェクト",
+        balloonfight_meta_target_label: "研究対象",
+        balloonfight_meta_target_val: "任天堂 ファミコン/NES（1984年）",
+        balloonfight_meta_role_label: "担当役割",
+        balloonfight_meta_role_val: "物理挙動研究・ソロ開発",
+        balloonfight_meta_rate_label: "再現達成度",
+        balloonfight_meta_rate_val: "基本挙動の約85%を忠実に再現",
+
+        balloonfight_sec1_title: "研究の目的：名作が持つ唯一無二の「浮遊感」を解き明かす",
+        balloonfight_sec1_callout: "「故・岩田聡氏がプログラミングした『バルーンファイト』の浮遊物理は、ゲーム史に残る傑作です。操作はシンプルに見えて、浮力・重力・空気抵抗・羽ばたきインパルスが織りなす絶妙な慣性の再現は極めて高度です。私は1ヶ月の制限時間を設け、この伝説の挙動を一から研究・再現することに挑みました。」",
+        balloonfight_physics_heading: "慣性、重力曲線、そして羽ばたきインパルスの調律",
+        balloonfight_physics_p1: "『バルーンファイト』の移動は、一般的な左右バイナリ移動とは根本的に異なります。ボタンを連打することで上方向へのインパルスが加算され、緩やかな浮力重力と拮抗。左右入力は慣性を保持したまま水平加速度を生み出し、独特の『空を滑るような浮遊感』を創出します。",
+        balloonfight_physics_p2: "<strong>忠実なアニメーションと状態遷移の再現:</strong> ボタン入力時の羽ばたきフレーム、慣性滑空時のアイドル姿勢、接触による2個→1個への風船割れ遷移、画面端の左右ループ処理など、原作のスプライト挙動を細部にわたり解析・再現しました。",
+
+        balloonfight_sec2_title: "技術的自己評価：成し遂げたことと残された課題（85%）",
+        balloonfight_sec2_callout: "「1ヶ月の期間内で、基本挙動の約<strong>85%の完成度</strong>に到達しました。自機の浮遊感や操作レスポンスはオリジナルに迫る手応えを得られた一方、敵AIや特殊ギミックの面で明確な時間切れの課題が残りました。」",
+        balloonfight_breakdown_heading: "達成できた点（約85%）と未完の課題（約15%）",
+        balloonfight_breakdown_p1: "<strong>達成できた点（約85%）:</strong> 自機の滑らかな慣性飛行物理、2段階の風船ライフシステム、足場への着地判定、撃墜時の雲パーティクル演出、スコアHUDの再現。自機を飛ばす手触りはオリジナルと遜色ないレベルまで詰め切ることができました。",
+        balloonfight_breakdown_p2: "<strong>未完となった点（約15%）:</strong> 敵鳥の高度なAIステートマシン（巡航・自機接近時の上昇・足場での風船再膨らまし）は簡易実装にとどまりました。また、水面から飛び出す巨大魚や雷雲の電撃ギミックなど、ステージ固有のギミックを1ヶ月内で網羅し切ることはできませんでした。",
+
+        balloonfight_sec3_title: "最大の収穫：リサーチ力こそがゲーム開発者の必須武器である",
+        balloonfight_learn_intro: "「このプロジェクトを通じて得た最も尊い財産は、『名作の挙動を深く観察・分析し、数値として紐解くリサーチ力』です。感覚に頼らず、フレーム単位で名作の良さを分解する手法は、今後のあらゆるオリジナル開発を支える生涯の武器となりました。」",
+        balloonfight_card1_badge: "観察力と分解力",
+        balloonfight_card1_title: "フレーム単位の挙動分解",
+        balloonfight_card1_desc: "「なんとなく作る」を排し、加速度・初速・減速率・先行入力をフレーム単位で計測・比較するリバースエンジニアリング手法を体得しました。",
+        balloonfight_card2_badge: "手触りの数値化",
+        balloonfight_card2_title: "「気持ちよさ」を裏付ける物理計算",
+        balloonfight_card2_desc: "ゲームの『手触りの良さ』は偶然ではなく、空気抵抗や慣性減衰の厳密な数学的調整の賜物であることを実感。触って楽しい挙動のチューニング技術を磨きました。",
+        balloonfight_card3_badge: "未来への武器",
+        balloonfight_card3_title: "将来の開発を支える研究力",
+        balloonfight_card3_desc: "既存の優れた仕様を深く分析して学ぶ力は、その後の『廻猫』のアクションの切れ味や、自作C++エンジン『DUAL』のメカニクス設計へと直結しています。",
 
         // Modal MEINEKO
         meineko_eyebrow_award: "🏆 優秀賞 受賞作",
@@ -1181,6 +1291,9 @@ function openProjectModal(projectId) {
         } else if (projectId === 'ultimamanus') {
             modalNavBadge.textContent = 'Ultima Manus';
             modalNavBadge.className = 'modal-nav-badge badge color-violet';
+        } else if (projectId === 'balloonfight') {
+            modalNavBadge.textContent = 'Balloon Fight';
+            modalNavBadge.className = 'modal-nav-badge badge color-cyan';
         }
     }
 
@@ -1215,7 +1328,7 @@ function closeProjectModal() {
 
     // Clear hash if it was a project hash
     const currentHash = window.location.hash.toLowerCase();
-    if (currentHash.startsWith('#project-') || currentHash === '#dual' || currentHash === '#meineko' || currentHash === '#tetrash' || currentHash === '#ultimamanus') {
+    if (currentHash.startsWith('#project-') || currentHash === '#dual' || currentHash === '#meineko' || currentHash === '#tetrash' || currentHash === '#ultimamanus' || currentHash === '#balloonfight') {
         if (window.history && window.history.replaceState) {
             window.history.replaceState(null, null, window.location.pathname + window.location.search);
         } else {
@@ -1274,6 +1387,8 @@ function handleHashRoute() {
         openProjectModal('tetrash');
     } else if (hash === '#project-ultimamanus' || hash === '#ultimamanus') {
         openProjectModal('ultimamanus');
+    } else if (hash === '#project-balloonfight' || hash === '#balloonfight') {
+        openProjectModal('balloonfight');
     } else if (projectModal && projectModal.classList.contains('active')) {
         closeProjectModal();
     }
