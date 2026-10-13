@@ -275,6 +275,40 @@
                         </div>
                     </div>
                 </article>
+
+                <!-- Project 4: Ultima Manus (Unity 2.5D Deck-Building Prototype & Post-Mortem) -->
+                <article class="bento-card project-card magnetic-hover project-card-interactive" data-project="ultimamanus" data-cursor="open ↗" tabindex="0" role="button" aria-label="Open Ultima Manus Project Deep Dive">
+                    <div class="card-media">
+                        <video class="project-video" src="ultimamanus-gameplay.mp4" poster="ultimamanus-thumb.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Ultima Manus Gameplay Preview"></video>
+                        <div class="media-overlay-badge badge color-violet" data-i18n="ultimamanus_status_badge">🧪 2.5D Deck-Building Prototype</div>
+                        <div class="media-hover-hint">
+                            <span data-i18n="click_to_open_hint">Click to open full project page ↗</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 data-i18n="project4_title">Ultima Manus</h3>
+                            <span class="badge color-violet" data-i18n="ultimamanus_status">⚙️ 1-Month Prototype</span>
+                        </div>
+                        <p class="desc project-card-teaser" data-i18n="project4_teaser">
+                            Inspired by Slay the Spire, a 2.5D turn-based deck-building prototype developed with a team of 3 in Unity. Explored 2.5D perspective mechanics, card queues, and spatial tactics. A crucial failure that taught me how to scope, schedule, and plan future games.
+                        </p>
+                        <div class="tags">
+                            <span class="badge color-violet" data-i18n="ultimamanus_tag_prototype">🧪 2.5D Prototype</span>
+                            <span class="badge" data-i18n="ultimamanus_tag_team">Team of 3 (1-Month Sprint)</span>
+                            <span class="badge" data-i18n="ultimamanus_tag_engine">Unity (C#)</span>
+                            <span class="badge" data-i18n="ultimamanus_tag_genre">Deck-Building × Turn-Based</span>
+                            <span class="badge" data-i18n="ultimamanus_tag_inspo">Inspired by Slay the Spire</span>
+                            <span class="badge" data-i18n="ultimamanus_tag_learning">Post-Mortem & Planning Growth</span>
+                        </div>
+                        <div class="card-footer-action">
+                            <button type="button" class="btn btn-secondary open-project-trigger" data-project="ultimamanus" data-i18n="btn_explore_ultimamanus">
+                                Open Ultima Manus Deep Dive →
+                            </button>
+                            <span class="role-sticker badge color-violet" data-i18n="project4_role">Role: Systems & Combat Programmer</span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -819,11 +853,158 @@
                     </div>
                 </article>
 
+                <!-- ============================================== -->
+                <!-- PROJECT 4: ULTIMA MANUS (Unity 2.5D Deck-Building Prototype & Post-Mortem) -->
+                <!-- ============================================== -->
+                <article id="project-detail-ultimamanus" class="project-detail-article">
+                    <div class="modal-article-header">
+                        <div class="modal-eyebrow-row">
+                            <span class="badge color-violet" data-i18n="ultimamanus_eyebrow_type">🧪 2.5D Deck-Building Prototype</span>
+                            <span class="badge" data-i18n="ultimamanus_eyebrow_team">Team of 3 • 1-Month Project</span>
+                            <span class="badge" data-i18n="ultimamanus_eyebrow_tech">Unity (C#) • 2.5D Perspective</span>
+                        </div>
+                        <h1 class="modal-project-title" data-i18n="ultimamanus_modal_title">Ultima Manus</h1>
+                        <p class="modal-project-subtitle" data-i18n="ultimamanus_modal_subtitle">
+                            2.5D Turn-Based Deck-Building Prototype • Inspired by Slay the Spire • Post-Mortem & Production Learnings
+                        </p>
+                    </div>
+
+                    <!-- Hero Media Showcase: Full Gameplay Recording -->
+                    <div class="modal-media-showcase">
+                        <div class="modal-media-frame video-frame">
+                            <video id="ultimamanus-modal-video" class="modal-hero-video" src="ultimamanus-gameplay.mp4" poster="ultimamanus-thumb.jpg" controls playsinline preload="auto" loop aria-label="Ultima Manus Official Gameplay Prototype">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="modal-preview-badge badge color-violet" data-i18n="ultimamanus_video_badge">🎮 Prototype Gameplay Footage</div>
+                        </div>
+                        <p class="modal-media-caption" data-i18n="ultimamanus_modal_media_caption">
+                            ▲ Ultima Manus Gameplay Prototype: 2.5D arena positioning, tactical card drawing (Movement, Attack, Shield Block), and turn-based duel against skeleton enemy.
+                        </p>
+                    </div>
+
+                    <!-- Meta Quick Stats -->
+                    <div class="modal-meta-grid">
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="ultimamanus_meta_type_label">Project Type</div>
+                            <div class="meta-val" data-i18n="ultimamanus_meta_type_val">1-Month Team Prototype (3 Members)</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="ultimamanus_meta_engine_label">Engine & Tech</div>
+                            <div class="meta-val text-accent" data-i18n="ultimamanus_meta_engine_val">Unity (C#) • 2.5D Hybrid Technique</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="ultimamanus_meta_role_label">My Role</div>
+                            <div class="meta-val" data-i18n="ultimamanus_meta_role_val">Systems & Combat Programmer</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="ultimamanus_meta_inspo_label">Core Inspiration</div>
+                            <div class="meta-val" data-i18n="ultimamanus_meta_inspo_val">Slay the Spire (Deck-Building Roguelike)</div>
+                        </div>
+                    </div>
+
+                    <!-- Section 1: The Core Vision & 2.5D Innovation -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">🃏</span>
+                            <span data-i18n="ultimamanus_sec1_title">The Vision: Merging Slay the Spire with 2.5D Grid Tactics</span>
+                        </h2>
+                        
+                        <div class="modal-prose">
+                            <div class="concept-callout">
+                                <p data-i18n="ultimamanus_sec1_callout">
+                                    "We loved the deck-building tension of <strong>Slay the Spire</strong>, but asked: what if card play wasn't just static turns, but dictated physical positioning across a 3D isometric arena? That vision became <strong>Ultima Manus</strong>—a prototype bursting with potential, merging 2D hand-drawn character cards with 3D space."
+                                </p>
+                            </div>
+
+                            <h3 data-i18n="ultimamanus_core_heading">Positional Movement Meets Strategic Card Queues</h3>
+                            <p data-i18n="ultimamanus_core_p1">
+                                In <strong>Ultima Manus</strong>, players navigate a checkered battle arena in 2.5D perspective. Each turn, the player draws a dynamic hand of action cards: directional movements (Left, Right, Up, Down), weapon strikes (Attack), and defensive barriers (Shield Block). The player forecasts enemy intents displayed in the top-right card queue to evade lethal strikes and plan counter-attacks.
+                            </p>
+                            <p data-i18n="ultimamanus_core_p2">
+                                <strong>2.5D Visual & System Pipeline:</strong> We implemented a hybrid 2.5D architecture in Unity—billboarding 2D sprites in 3D perspective space with custom depth-sorting, dynamic shadows, and responsive UI card-hand fans. The underlying mechanics held tremendous depth and potential.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Section 2: The Honest Post-Mortem -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">⚖️</span>
+                            <span data-i18n="ultimamanus_sec2_title">The Honest Post-Mortem: Why the Project Stalled</span>
+                        </h2>
+                        <div class="modal-prose">
+                            <div class="concept-callout">
+                                <p data-i18n="ultimamanus_sec2_callout">
+                                    "Great ideas don't ship themselves without rigorous planning. In our excitement, we started coding without defining milestones or scope boundaries. As the 1-month deadline neared, unrefined systems collided, leaving an unpolished prototype rather than a finished game."
+                                </p>
+                            </div>
+                            <h3 data-i18n="ultimamanus_fail_heading">Root Causes of Failure</h3>
+                            <p data-i18n="ultimamanus_fail_p1">
+                                <strong>1. Lack of Scope & Task Breakdown:</strong> We attempted to build a full card engine, 2.5D movement physics, enemy AI intent forecasting, and visual effects all at once within a single month with 3 people, without breaking the project down into clear sprints or measurable daily goals.
+                            </p>
+                            <p data-i18n="ultimamanus_fail_p2">
+                                <strong>2. Neglecting the MVP & Iterative Refinement:</strong> Because we didn't lock in a polished, playable Minimum Viable Product (MVP) in the first two weeks, we spent the remaining time putting out fires across disconnected systems rather than playtesting, balancing, and polishing the core fun.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Section 3: The Turning Point -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">🌱</span>
+                            <span data-i18n="ultimamanus_sec3_title">The Turning Point: Building the Foundation for Future 1st Prize Wins</span>
+                        </h2>
+                        
+                        <div class="modal-prose">
+                            <p data-i18n="ultimamanus_learn_intro">
+                                Failing on <strong>Ultima Manus</strong> was a bitter pill to swallow, but it became the single most defining catalyst in my game development journey. It transformed my approach from an enthusiastic coder into a disciplined, production-minded game engineer:
+                            </p>
+                            
+                            <div class="reflections-grid">
+                                <div class="reflection-card color-violet-card">
+                                    <div class="reflection-card-header">
+                                        <span class="badge color-violet" data-i18n="ultimamanus_card1_badge">Project Management</span>
+                                        <h3 data-i18n="ultimamanus_card1_title">Granular Tasking & Roadmaps</h3>
+                                    </div>
+                                    <p data-i18n="ultimamanus_card1_desc">
+                                        I instituted structured work breakdowns for all future projects. Every feature is now divided into clear sub-tasks, responsibilities, and non-negotiable milestones before touching code.
+                                    </p>
+                                </div>
+                                <div class="reflection-card color-orange-card">
+                                    <div class="reflection-card-header">
+                                        <span class="badge color-orange" data-i18n="ultimamanus_card2_badge">Scope Control</span>
+                                        <h3 data-i18n="ultimamanus_card2_title">Locking the MVP Early</h3>
+                                    </div>
+                                    <p data-i18n="ultimamanus_card2_desc">
+                                        Learned to ruthlessly prioritize the core mechanic first. Secure a working prototype within the first 30% of the timeline, leaving the majority of time for playtesting, bug fixing, and refinement.
+                                    </p>
+                                </div>
+                                <div class="reflection-card color-lime-card">
+                                    <div class="reflection-card-header">
+                                        <span class="badge color-lime" data-i18n="ultimamanus_card3_badge">Proven Results</span>
+                                        <h3 data-i18n="ultimamanus_card3_title">The Fuel for Future Wins</h3>
+                                    </div>
+                                    <p data-i18n="ultimamanus_card3_desc">
+                                        This exact shift in planning directly enabled me to lead an 8-person team to the Excellence Award in MEINEKO (10-day sprint) and win 1st Prize (Honor of Excellence) in TeTrash (DePaul × Trident Game Jam).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Bottom Return Action -->
+                    <div class="modal-bottom-actions">
+                        <button type="button" class="btn btn-primary modal-back-btn-bottom" data-cursor="back">
+                            ← <span data-i18n="modal_btn_back">Back to Portfolio</span>
+                        </button>
+                    </div>
+                </article>
+
             </div>
         </div>
     </div>
     
-    <script type="module" src="background.js?v=22"></script>
-    <script type="module" src="script.js?v=22"></script>
+    <script type="module" src="background.js?v=23"></script>
+    <script type="module" src="script.js?v=23"></script>
 </body>
 </html>

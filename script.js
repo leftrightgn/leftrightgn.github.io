@@ -108,6 +108,61 @@ const TRANSLATIONS = {
         tetrash_card3_title: "1st Prize: Honor of Excellence",
         tetrash_card3_desc: "Managing to win 1st Prize (Honor of Excellence) was an unforgettable triumph. It validated that clear communication, strong team synergy, and focused game design can achieve the highest recognition.",
 
+        // Homepage Card 4 (Ultima Manus)
+        project4_title: "Ultima Manus",
+        ultimamanus_status_badge: "🧪 2.5D Deck-Building Prototype",
+        ultimamanus_status: "⚙️ 1-Month Prototype",
+        project4_teaser: "Inspired by Slay the Spire, a 2.5D turn-based deck-building prototype developed with a team of 3 in Unity. Explored 2.5D perspective mechanics, card queues, and spatial tactics. A crucial failure that taught me how to scope, schedule, and plan future games.",
+        btn_explore_ultimamanus: "Open Ultima Manus Deep Dive →",
+        project4_role: "Role: Systems & Combat Programmer",
+        ultimamanus_tag_prototype: "🧪 2.5D Prototype",
+        ultimamanus_tag_team: "Team of 3 (1-Month Sprint)",
+        ultimamanus_tag_engine: "Unity (C#)",
+        ultimamanus_tag_genre: "Deck-Building × Turn-Based",
+        ultimamanus_tag_inspo: "Inspired by Slay the Spire",
+        ultimamanus_tag_learning: "Post-Mortem & Planning Growth",
+
+        // Modal Ultima Manus
+        ultimamanus_eyebrow_type: "🧪 2.5D Deck-Building Prototype",
+        ultimamanus_eyebrow_team: "Team of 3 • 1-Month Project",
+        ultimamanus_eyebrow_tech: "Unity (C#) • 2.5D Perspective",
+        ultimamanus_modal_title: "Ultima Manus",
+        ultimamanus_modal_subtitle: "2.5D Turn-Based Deck-Building Prototype • Inspired by Slay the Spire • Post-Mortem & Production Learnings",
+        ultimamanus_video_badge: "🎮 Prototype Gameplay Footage",
+        ultimamanus_modal_media_caption: "▲ Ultima Manus Gameplay Prototype: 2.5D arena positioning, tactical card drawing (Movement, Attack, Shield Block), and turn-based duel against skeleton enemy.",
+        ultimamanus_meta_type_label: "Project Type",
+        ultimamanus_meta_type_val: "1-Month Team Prototype (3 Members)",
+        ultimamanus_meta_engine_label: "Engine & Tech",
+        ultimamanus_meta_engine_val: "Unity (C#) • 2.5D Hybrid Technique",
+        ultimamanus_meta_role_label: "My Role",
+        ultimamanus_meta_role_val: "Systems & Combat Programmer",
+        ultimamanus_meta_inspo_label: "Core Inspiration",
+        ultimamanus_meta_inspo_val: "Slay the Spire (Deck-Building Roguelike)",
+
+        ultimamanus_sec1_title: "The Vision: Merging Slay the Spire with 2.5D Grid Tactics",
+        ultimamanus_sec1_callout: "\"We loved the deck-building tension of <strong>Slay the Spire</strong>, but asked: what if card play wasn't just static turns, but dictated physical positioning across a 3D isometric arena? That vision became <strong>Ultima Manus</strong>—a prototype bursting with potential, merging 2D hand-drawn character cards with 3D space.\"",
+        ultimamanus_core_heading: "Positional Movement Meets Strategic Card Queues",
+        ultimamanus_core_p1: "In <strong>Ultima Manus</strong>, players navigate a checkered battle arena in 2.5D perspective. Each turn, the player draws a dynamic hand of action cards: directional movements (Left, Right, Up, Down), weapon strikes (Attack), and defensive barriers (Shield Block). The player forecasts enemy intents displayed in the top-right card queue to evade lethal strikes and plan counter-attacks.",
+        ultimamanus_core_p2: "<strong>2.5D Visual & System Pipeline:</strong> We implemented a hybrid 2.5D architecture in Unity—billboarding 2D sprites in 3D perspective space with custom depth-sorting, dynamic shadows, and responsive UI card-hand fans. The underlying mechanics held tremendous depth and potential.",
+
+        ultimamanus_sec2_title: "The Honest Post-Mortem: Why the Project Stalled",
+        ultimamanus_sec2_callout: "\"Great ideas don't ship themselves without rigorous planning. In our excitement, we started coding without defining milestones or scope boundaries. As the 1-month deadline neared, unrefined systems collided, leaving an unpolished prototype rather than a finished game.\"",
+        ultimamanus_fail_heading: "Root Causes of Failure",
+        ultimamanus_fail_p1: "<strong>1. Lack of Scope & Task Breakdown:</strong> We attempted to build a full card engine, 2.5D movement physics, enemy AI intent forecasting, and visual effects all at once within a single month with 3 people, without breaking the project down into clear sprints or measurable daily goals.",
+        ultimamanus_fail_p2: "<strong>2. Neglecting the MVP & Iterative Refinement:</strong> Because we didn't lock in a polished, playable Minimum Viable Product (MVP) in the first two weeks, we spent the remaining time putting out fires across disconnected systems rather than playtesting, balancing, and polishing the core fun.",
+
+        ultimamanus_sec3_title: "The Turning Point: Building the Foundation for Future 1st Prize Wins",
+        ultimamanus_learn_intro: "Failing on <strong>Ultima Manus</strong> was a bitter pill to swallow, but it became the single most defining catalyst in my game development journey. It transformed my approach from an enthusiastic coder into a disciplined, production-minded game engineer:",
+        ultimamanus_card1_badge: "Project Management",
+        ultimamanus_card1_title: "Granular Tasking & Roadmaps",
+        ultimamanus_card1_desc: "I instituted structured work breakdowns for all future projects. Every feature is now divided into clear sub-tasks, responsibilities, and non-negotiable milestones before touching code.",
+        ultimamanus_card2_badge: "Scope Control",
+        ultimamanus_card2_title: "Locking the MVP Early",
+        ultimamanus_card2_desc: "Learned to ruthlessly prioritize the core mechanic first. Secure a working prototype within the first 30% of the timeline, leaving the majority of time for playtesting, bug fixing, and refinement.",
+        ultimamanus_card3_badge: "Proven Results",
+        ultimamanus_card3_title: "The Fuel for Future Wins",
+        ultimamanus_card3_desc: "This exact shift in planning directly enabled me to lead an 8-person team to the Excellence Award in MEINEKO (10-day sprint) and win 1st Prize (Honor of Excellence) in TeTrash (DePaul × Trident Game Jam).",
+
         // Modal MEINEKO
         meineko_eyebrow_award: "🏆 優秀賞 (Excellence Award)",
         meineko_eyebrow_jam: "IGCC Game Jam 2026",
@@ -351,6 +406,61 @@ const TRANSLATIONS = {
         tetrash_card3_badge: "最高賞の受賞",
         tetrash_card3_title: "最優秀賞（Honor of Excellence）の獲得",
         tetrash_card3_desc: "チーム一丸となって完成させた結果、数あるチームの中から見事第1位となる『最優秀賞（Honor of Excellence）』を受賞。仲間との信頼と団結があれば、高い壁を越えて素晴らしい成果を出せるという強い自信に繋がりました。",
+
+        // Homepage Card 4 (Ultima Manus)
+        project4_title: "Ultima Manus (アルティマ・マヌス)",
+        ultimamanus_status_badge: "🧪 2.5Dデッキ構築プロトタイプ",
+        ultimamanus_status: "⚙️ チーム制作プロトタイプ (1ヶ月)",
+        project4_teaser: "『Slay the Spire』に着想を得て、3人チームで1ヶ月間制作したUnity製2.5Dターン制デッキ構築プロトタイプ。空間移動とカード戦術の融合に挑戦。計画とスコープ管理の重要性を痛感し、その後の受賞作への成長基盤となった学びの作品。",
+        btn_explore_ultimamanus: "Ultima Manus 制作と学びを見る →",
+        project4_role: "担当: システム＆戦闘プログラマー",
+        ultimamanus_tag_prototype: "🧪 2.5Dプロトタイプ",
+        ultimamanus_tag_team: "3人チーム制作 (1ヶ月スプリント)",
+        ultimamanus_tag_engine: "Unity (C#)",
+        ultimamanus_tag_genre: "デッキ構築 × ターン制バトル",
+        ultimamanus_tag_inspo: "Slay the Spire 着想",
+        ultimamanus_tag_learning: "失敗分析と工程管理の成長",
+
+        // Modal Ultima Manus
+        ultimamanus_eyebrow_type: "🧪 2.5Dデッキ構築プロトタイプ",
+        ultimamanus_eyebrow_team: "3人チーム • 1ヶ月短期制作",
+        ultimamanus_eyebrow_tech: "Unity (C#) • 2.5D視点技法",
+        ultimamanus_modal_title: "Ultima Manus (アルティマ・マヌス)",
+        ultimamanus_modal_subtitle: "2.5Dターン制デッキ構築プロトタイプ • 『Slay the Spire』に着想 • 失敗分析と制作マネジメントの学び",
+        ultimamanus_video_badge: "🎮 実機プロトタイプ映像",
+        ultimamanus_modal_media_caption: "▲ 『Ultima Manus』実機プロトタイプ映像：2.5Dアリーナでのマス移動、手札カード（移動・攻撃・防御シールド）の戦術選択、スケルトン敵とのターン制バトル。",
+        ultimamanus_meta_type_label: "制作区分",
+        ultimamanus_meta_type_val: "1ヶ月チーム制作プロトタイプ（3名）",
+        ultimamanus_meta_engine_label: "使用技術",
+        ultimamanus_meta_engine_val: "Unity (C#) • 2.5Dハイブリッド視点",
+        ultimamanus_meta_role_label: "担当役割",
+        ultimamanus_meta_role_val: "システム＆戦闘プログラマー",
+        ultimamanus_meta_inspo_label: "設計の着想",
+        ultimamanus_meta_inspo_val: "Slay the Spire（デッキ構築ローグライク）",
+
+        ultimamanus_sec1_title: "設計思想：『Slay the Spire』× 2.5Dマス移動の融合",
+        ultimamanus_sec1_callout: "「『Slay the Spire』の持つデッキ構築の奥深さを愛していた私たちは、『もしカードが単なる数値の応酬だけでなく、3Dアリーナ上での物理的な位置取りや間合いの駆け引きに直結したら？』と考えました。その構想から生まれたのが、2Dイラストと3D空間を融合させた『Ultima Manus』でした。」",
+        ultimamanus_core_heading: "空間移動とカードキューが織りなすタクティカルバトル",
+        ultimamanus_core_p1: "本作では、チェッカーフラッグ状の2.5Dアリーナ上で敵味方が対峙します。毎ターン配られる手札には、移動カード（上・下・左・右）、攻撃カード、シールド防御カードが存在。画面右上に表示される敵の行動予告（カードキュー）を先読みし、攻撃範囲から身をかわしながら反撃の布石を打つタクティカルな駆け引きを目指しました。",
+        ultimamanus_core_p2: "<strong>Unityにおける2.5D表現の追求:</strong> 3D空間に2Dスプライトを配置し、パースペクティブを活かしたビルボード処理や深度ソート、手札カードの扇状UIアニメーションを実装。システムとしてのポテンシャルは非常に高いものでした。",
+
+        ultimamanus_sec2_title: "実直な失敗分析：プロジェクトが頓挫した根本原因",
+        ultimamanus_sec2_callout: "「どれほど素晴らしいアイデアであっても、緻密な計画と工程管理がなければ完成させることはできません。熱意のあまりマイルストーンやスコープの境界線を決めずに走り出してしまい、1ヶ月の期日が迫る中で未検証の要素が衝突。ゲームとして洗練しきれないままタイムアップとなりました。」",
+        ultimamanus_fail_heading: "完成に至らなかった2つの根本原因",
+        ultimamanus_fail_p1: "<strong>1. スコープの見誤りとタスク分割の欠如:</strong> 3人という限られた体制かつ1ヶ月という短期制作にもかかわらず、カードエンジン、2.5D移動、敵AIの行動予測、演出を同時に走らせてしまい、スプリントや日次の具体的タスクへの分解を怠っていました。",
+        ultimamanus_fail_p2: "<strong>2. MVP（最小限の遊べる形）と磨き込みの不足:</strong> 最初の2週間で中核となる最小限のゲームループを完成させて固定しなかったため、後半はシステムの繋ぎ込みやバグ修正に追われ、肝心のバランス調整や『面白さの磨き込み』に時間を割けませんでした。",
+
+        ultimamanus_sec3_title: "最大の収穫：次期プロジェクトでの劇的成長と受賞への架け橋",
+        ultimamanus_learn_intro: "『Ultima Manus』を完成させられなかった悔しさは、私のゲーム開発者としての姿勢を根底から変える最大の転換点となりました。単なる『作りたいものを書くプログラマー』から、『工数を見極め、チームをゴールへ導くエンジニア』へと意識が飛躍しました：",
+        ultimamanus_card1_badge: "工程管理とタスク分解",
+        ultimamanus_card1_title: "明確なタスク分割とロードマップ設計",
+        ultimamanus_card1_desc: "「次期プロジェクトでは必ず明確なタスク分割とスケジュールを策定する」と誓い、曖昧な実装を排除。機能を細分化し、誰が何をいつまでに実装するかを可視化する手法を確立しました。",
+        ultimamanus_card2_badge: "スコープ管理と磨き込み",
+        ultimamanus_card2_title: "MVP（最小限のプロトタイプ）の早期確立",
+        ultimamanus_card2_desc: "欲張って要素を増やさず、制作期間の序盤でまずコアとなる楽しさを成立させ、残りの期間を操作感のチューニングやデバッグ、演出の洗練に充てる鉄則を身につけました。",
+        ultimamanus_card3_badge: "実績への結実",
+        ultimamanus_card3_title: "『廻猫』優秀賞＆『TeTrash』最優秀賞への結実",
+        ultimamanus_card3_desc: "この失敗で培った計画力と工程管理こそが、その後の『廻猫 - MEINEKO -』（8人チーム・10日間スプリントでの優秀賞）や、『TeTrash』（日米合同ジャムでの最優秀賞受賞）という最高の結果を生み出す原動力となりました。",
 
         // Modal MEINEKO
         meineko_eyebrow_award: "🏆 優秀賞 受賞作",
@@ -1068,6 +1178,9 @@ function openProjectModal(projectId) {
         } else if (projectId === 'tetrash') {
             modalNavBadge.textContent = 'TeTrash';
             modalNavBadge.className = 'modal-nav-badge badge color-lime';
+        } else if (projectId === 'ultimamanus') {
+            modalNavBadge.textContent = 'Ultima Manus';
+            modalNavBadge.className = 'modal-nav-badge badge color-violet';
         }
     }
 
@@ -1102,7 +1215,7 @@ function closeProjectModal() {
 
     // Clear hash if it was a project hash
     const currentHash = window.location.hash.toLowerCase();
-    if (currentHash.startsWith('#project-') || currentHash === '#dual' || currentHash === '#meineko' || currentHash === '#tetrash') {
+    if (currentHash.startsWith('#project-') || currentHash === '#dual' || currentHash === '#meineko' || currentHash === '#tetrash' || currentHash === '#ultimamanus') {
         if (window.history && window.history.replaceState) {
             window.history.replaceState(null, null, window.location.pathname + window.location.search);
         } else {
@@ -1159,6 +1272,8 @@ function handleHashRoute() {
         openProjectModal('meineko');
     } else if (hash === '#project-tetrash' || hash === '#tetrash') {
         openProjectModal('tetrash');
+    } else if (hash === '#project-ultimamanus' || hash === '#ultimamanus') {
+        openProjectModal('ultimamanus');
     } else if (projectModal && projectModal.classList.contains('active')) {
         closeProjectModal();
     }
