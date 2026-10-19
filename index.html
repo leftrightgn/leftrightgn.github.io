@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css?v=19">
+    <link rel="stylesheet" href="style.css?v=25">
     
     <!-- Three.js Import Map -->
     <script type="importmap">
@@ -343,6 +343,41 @@
                         </div>
                     </div>
                 </article>
+
+                <!-- Project 6: SLIME (DxLib C++ 2D Ecosystem Survival Platformer • 1st Year Final Project) -->
+                <article class="bento-card project-card magnetic-hover project-card-interactive" data-project="slime" data-cursor="open ↗" tabindex="0" role="button" aria-label="Open SLIME Project Deep Dive">
+                    <div class="card-media">
+                        <video class="project-video" src="slime-gameplay.mp4" poster="slime-thumb.jpg" autoplay loop muted playsinline preload="metadata" aria-label="SLIME Gameplay Preview"></video>
+                        <div class="media-overlay-badge badge color-lime" data-i18n="slime_status_badge">🌱 1st Year Final Project • DxLib (C++)</div>
+                        <div class="media-hover-hint">
+                            <span data-i18n="click_to_open_hint">Click to open full project page ↗</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 data-i18n="project6_title">SLIME</h3>
+                            <span class="badge color-lime" data-i18n="slime_status">🌱 Completed (3-Month Dev)</span>
+                        </div>
+                        <p class="desc project-card-teaser" data-i18n="project6_teaser">
+                            Inspired by Rain World, a tactile 2D ecosystem survival platformer built from scratch in C++ (DxLib) for my 1st-year final project. Master fluid slime locomotion, brave an apocalyptic nightfall countdown, consume insects to evolve new traits, and embark on a dangerous quest for the Divine Branch of immortality.
+                        </p>
+                        <div class="tags">
+                            <span class="badge color-lime" data-i18n="slime_tag_project">🌱 1st Year Final Project</span>
+                            <span class="badge" data-i18n="slime_tag_engine">DxLib (C++)</span>
+                            <span class="badge" data-i18n="slime_tag_timeline">3-Month Solo Dev</span>
+                            <span class="badge" data-i18n="slime_tag_inspo">Rain World Inspiration</span>
+                            <span class="badge" data-i18n="slime_tag_daynight">Day/Night Survival Loop</span>
+                            <span class="badge" data-i18n="slime_tag_evolution">Prey & Evolution Mechanics</span>
+                            <span class="badge" data-i18n="slime_tag_physics">Triangle Slope Post-Mortem</span>
+                        </div>
+                        <div class="card-footer-action">
+                            <button type="button" class="btn btn-secondary open-project-trigger" data-project="slime" data-i18n="btn_explore_slime">
+                                Open SLIME Deep Dive →
+                            </button>
+                            <span class="role-sticker badge color-lime" data-i18n="project6_role">Role: Solo Developer & Systems Programmer</span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -360,6 +395,11 @@
                     <div class="fail-header badge color-violet" data-i18n="fail2_header">Error: Scope Creep</div>
                     <p><strong data-i18n="fail_what_broke">What broke:</strong> <span data-i18n="fail2_broke">Planned an epic fantasy RPG with 10 classes and massive lore for a 48h game jam. Finished zero playable loops.</span></p>
                     <p><strong data-i18n="fail_what_learned">What I learned:</strong> <span data-i18n="fail2_learned">Cut the scope in half, then cut it again. Nail the core gameplay loop first, then expand the world.</span></p>
+                </div>
+                <div class="bento-card fail-card">
+                    <div class="fail-header badge color-lime" data-i18n="fail3_header">Error: Triangle Slope Normals (SLIME)</div>
+                    <p><strong data-i18n="fail_what_broke">What broke:</strong> <span data-i18n="fail3_broke">Custom 45° triangle colliders in DxLib miscalculated surface normals. Character velocity went wild on slopes and rock bounces defied gravity.</span></p>
+                    <p><strong data-i18n="fail_what_learned">What I learned:</strong> <span data-i18n="fail3_learned">Slopes demand rigorous dot product projections and contact tangents. Mastering this struggle laid the vector math groundwork for my custom C++ engine in DUAL.</span></p>
                 </div>
             </div>
         </section>
@@ -1181,11 +1221,249 @@
                     </div>
                 </article>
 
+                <!-- ============================================== -->
+                <!-- PROJECT 6: SLIME (DxLib C++ 2D Ecosystem Survival Platformer • 1st Year Final Project) -->
+                <!-- ============================================== -->
+                <article id="project-detail-slime" class="project-detail-article">
+                    <div class="modal-article-header">
+                        <div class="modal-eyebrow-row">
+                            <span class="badge color-lime" data-i18n="slime_eyebrow_type">🌱 1st Year Final Project</span>
+                            <span class="badge" data-i18n="slime_eyebrow_time">3-Month Solo Sprint</span>
+                            <span class="badge color-violet" data-i18n="slime_eyebrow_engine">DxLib (Pure C++)</span>
+                            <span class="badge" data-i18n="slime_eyebrow_status">Completed Game</span>
+                        </div>
+                        <h1 class="modal-project-title" data-i18n="slime_modal_title">SLIME</h1>
+                        <p class="modal-project-subtitle" data-i18n="slime_modal_subtitle">
+                            2D Ecosystem Survival Platformer • Inspired by Rain World • Custom Triangle Slope Physics & Evolution Mechanics
+                        </p>
+                    </div>
+
+                    <!-- Hero Media Showcase: Full Gameplay Recording -->
+                    <div class="modal-media-showcase">
+                        <div class="modal-media-frame video-frame">
+                            <video id="slime-modal-video" class="modal-hero-video" src="slime-gameplay.mp4" poster="slime-thumb.jpg" controls playsinline preload="auto" loop aria-label="SLIME Gameplay Video Demonstration">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="modal-preview-badge badge color-lime" data-i18n="slime_video_badge">🎮 Gameplay Video • DxLib In-Engine</div>
+                        </div>
+                        <p class="modal-media-caption" data-i18n="slime_modal_media_caption">
+                            ▲ Official Gameplay Demonstration: Squash-and-stretch slime locomotion, day/night cycle urgency, dynamic insect absorption evolutions, rock throwing, and mountain slope traversal.
+                        </p>
+                    </div>
+
+                    <!-- Meta Quick Stats -->
+                    <div class="modal-meta-grid">
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="slime_meta_type_label">Project Type</div>
+                            <div class="meta-val" data-i18n="slime_meta_type_val">1st Year Final Project (3-Month Solo Sprint)</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="slime_meta_engine_label">Engine & Framework</div>
+                            <div class="meta-val text-accent" data-i18n="slime_meta_engine_val">DxLib (Pure C++ / Custom Physics & Rendering)</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="slime_meta_role_label">My Role</div>
+                            <div class="meta-val" data-i18n="slime_meta_role_val">Solo Developer (Gameplay, Physics, Systems & Art)</div>
+                        </div>
+                        <div class="modal-meta-item">
+                            <div class="meta-label" data-i18n="slime_meta_inspo_label">Core Inspiration</div>
+                            <div class="meta-val" data-i18n="slime_meta_inspo_val">Rain World (Fluid Creature Locomotion & Living Ecosystem)</div>
+                        </div>
+                    </div>
+
+                    <!-- Section 1: The Vision & World Design -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">🌱</span>
+                            <span data-i18n="slime_sec1_title">The Vision: Rain World Feel & Ecosystem Survival</span>
+                        </h2>
+                        
+                        <div class="modal-prose">
+                            <div class="concept-callout">
+                                <p data-i18n="slime_sec1_callout">
+                                    "I have always been captivated by the organic, tactile creature movement in <strong>Rain World</strong>. For my 1st-year final project, I set out to build a complete game in C++ and DxLib featuring a character that felt genuinely alive, squishy, and dynamic—a vulnerable little slime fighting to survive against the harsh wilderness."
+                                </p>
+                            </div>
+
+                            <h3 data-i18n="slime_vision_heading">Tactile Slime Locomotion & The Looming Shadow of Nightfall</h3>
+                            <p data-i18n="slime_vision_p1">
+                                In <strong>SLIME</strong>, the player controls a squishy green slime exploring a dense, primeval wilderness. By applying dynamic velocity damping, landing squash, and stretching acceleration curves directly in DxLib, I gave the slime an elastic, visceral responsiveness that made simply jumping and slithering deeply satisfying.
+                            </p>
+                            <p data-i18n="slime_vision_p2">
+                                <strong>The Day & Night Survival Loop:</strong> The slime has a finite lifespan, tracked by the cycle counter (e.g. <code>[Cycle: 1/3]</code>). As day turns to dusk, the sun sinks and an apocalyptic wall of darkness sweeps relentlessly across the screen. No living organism can survive exposed in the dark—players must scramble back into the sanctuary of cave shelters before nightfall consumes them.
+                            </p>
+                            <p data-i18n="slime_vision_p3">
+                                <strong>The Quest for Immortality:</strong> Surviving the cycles is only half the battle. High in the forest canopy lies the legendary <strong>Divine Branch (神木の枝)</strong>. Navigating treacherous chasms and predators during daylight to claim the branch allows the slime to transcend its mortal cycle and become the crowned <strong>Immortal Slime</strong>!
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Section 2: Predator-Prey Ecosystem & Dynamic Evolution -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">🦗</span>
+                            <span data-i18n="slime_sec2_title">Predator-Prey Ecosystem & Dynamic Evolution</span>
+                        </h2>
+                        
+                        <div class="modal-prose">
+                            <div class="concept-callout">
+                                <p data-i18n="slime_sec2_callout">
+                                    "Rather than static power-ups or weapons, the slime's growth is tied directly to the food chain. By hunting and absorbing specific creatures roaming the ecosystem, the slime temporarily incorporates their biological traits to solve platforming obstacles."
+                                </p>
+                            </div>
+
+                            <h3 data-i18n="slime_evo_heading">Insect Hunting & Adaptive Mutations</h3>
+                            <p data-i18n="slime_evo_p1">
+                                <strong>Grasshopper (バッタ) → High-Altitude Double Jump:</strong> Catching a leaping grasshopper mutates the slime, granting high-elasticity double jumps to scale sheer mountain cliffs and outmaneuver predators.
+                            </p>
+                            <p data-i18n="slime_evo_p2">
+                                <strong>Beetle (甲虫) → Hardened Carapace Armor:</strong> Consuming an armored beetle coats the slime in a rock-hard defensive shell, allowing it to withstand heavy environmental damage and survive aggressive predator strikes.
+                            </p>
+                            <p data-i18n="slime_evo_p3">
+                                <strong>Dragonfly (トンボ) → Winged Aerial Glide & Speed:</strong> Snatching an airborne dragonfly sprouts gossamer wings on the slime's sides, unleashing high-speed aerial flight and glide mechanics across expansive caverns.
+                            </p>
+
+                            <h3 data-i18n="slime_tools_heading">Environmental Tools: Rock Carrying & Trajectory Hurling</h3>
+                            <p data-i18n="slime_tools_p1">
+                                To defend against lethal threats like giant leaping frogs or trigger distant mechanisms, the slime can lift stones on its head and hurl them with parabolic velocity arcs, adding tactical defense to the survival platforming.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Section 3: Visual Showcase / Image Gallery -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">📸</span>
+                            <span data-i18n="slime_sec3_title">Visual Showcase: The World of SLIME</span>
+                        </h2>
+                        
+                        <div class="showcase-grid">
+                            <div class="showcase-card">
+                                <img src="slime-screen-nightfall.jpg" alt="Encroaching Darkness in SLIME" class="showcase-card-img" loading="lazy">
+                                <div class="showcase-card-body">
+                                    <div class="showcase-card-title">
+                                        <span>🌑</span>
+                                        <span data-i18n="slime_gallery_card1_title">The Encroaching Darkness</span>
+                                    </div>
+                                    <p class="showcase-card-desc" data-i18n="slime_gallery_card1_desc">
+                                        The terrifying day/night transition: A lethal wall of absolute darkness sweeps across the stage, demanding a high-speed dash back to cave shelters.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="showcase-card">
+                                <img src="slime-screen-cave.jpg" alt="Winged Evolution in Crystal Cavern" class="showcase-card-img" loading="lazy">
+                                <div class="showcase-card-body">
+                                    <div class="showcase-card-title">
+                                        <span>🪽</span>
+                                        <span data-i18n="slime_gallery_card2_title">Winged Evolution & Caverns</span>
+                                    </div>
+                                    <p class="showcase-card-desc" data-i18n="slime_gallery_card2_desc">
+                                        Slime in winged flight after consuming a dragonfly, navigating subterranean crystal caverns and hazards.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="showcase-card">
+                                <img src="slime-thumb.jpg" alt="Rock Hurling & Mountain Slopes" class="showcase-card-img" loading="lazy">
+                                <div class="showcase-card-body">
+                                    <div class="showcase-card-title">
+                                        <span>🪨</span>
+                                        <span data-i18n="slime_gallery_card3_title">Rock Hurling & Slopes</span>
+                                    </div>
+                                    <p class="showcase-card-desc" data-i18n="slime_gallery_card3_desc">
+                                        Leaping with a carried stone against mountain slopes, facing off against predatory frogs and patrolling beetles.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="showcase-card">
+                                <img src="slime-screen-immortal.jpg" alt="The Crowned Immortal Slime Victory Screen" class="showcase-card-img" loading="lazy">
+                                <div class="showcase-card-body">
+                                    <div class="showcase-card-title">
+                                        <span>👑</span>
+                                        <span data-i18n="slime_gallery_card4_title">The Immortal Slime</span>
+                                    </div>
+                                    <p class="showcase-card-desc" data-i18n="slime_gallery_card4_desc">
+                                        Victory! Reaching the Divine Branch before time runs out, crowning the slime as the eternal Immortal Slime.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 4: Honest Post-Mortem & Physics Challenges -->
+                    <section class="modal-section">
+                        <h2 class="modal-section-title">
+                            <span class="section-icon">📐</span>
+                            <span data-i18n="slime_sec4_title">The Honest Post-Mortem: What Failed & Why It Changed Everything</span>
+                        </h2>
+                        
+                        <div class="modal-prose">
+                            <div class="concept-callout">
+                                <p data-i18n="slime_sec4_callout">
+                                    "A complete game doesn't mean a flawless one. Building a physics engine from scratch in C++ without third-party libraries pushed me face-to-face with the hardest math in game programming. My biggest battle was slopes."
+                                </p>
+                            </div>
+
+                            <h3 data-i18n="slime_fail_heading">The Triangle Collider & Surface Normal Crisis</h3>
+                            <p data-i18n="slime_fail_p1">
+                                <strong>What Broke on Slopes:</strong> I wanted the terrain to feel organic and natural, so I created 45° triangle colliders in DxLib for mountain inclines. But calculating contact surface normals on non-orthogonal hypotenuses proved viciously difficult. My collider math failed to properly decompose velocity along the surface tangent (<code>V - (V · N)N</code>). When the slime hit a slope, the normal impulse blew up—the player's velocity calculation went wild, causing jittery clipping, sliding violently backwards, or launching high into the sky.
+                            </p>
+                            <p data-i18n="slime_fail_p2">
+                                <strong>Unrefined Rock Bouncing:</strong> The same vector math flaw plagued projectile physics. Throwing rocks onto slopes produced unnatural, glitchy bounce angles because surface normal reflection (<code>R = V - 2(V · N)N</code>) and restitution damping weren't refined enough in my custom solver.
+                            </p>
+
+                            <h3 data-i18n="slime_learn_heading">The Foundation for Future Mastery</h3>
+                            <p data-i18n="slime_learn_intro">
+                                Wrestling with custom triangle colliders and normal vector projections was humbling, but it became the most transformative technical crucible of my first year:
+                            </p>
+
+                            <div class="reflections-grid">
+                                <div class="reflection-card color-lime-card">
+                                    <div class="reflection-card-header">
+                                        <span class="badge color-lime" data-i18n="slime_card1_badge">Physics Math</span>
+                                        <h3 data-i18n="slime_card1_title">Vector Normals & Dot Products</h3>
+                                    </div>
+                                    <p data-i18n="slime_card1_desc">
+                                        Taught me that 2D physics isn't just AABB bounding boxes. It forced me to master vector projections, separating axis theorem (SAT), and impulse resolution from the mathematical ground up.
+                                    </p>
+                                </div>
+                                <div class="reflection-card color-orange-card">
+                                    <div class="reflection-card-header">
+                                        <span class="badge color-orange" data-i18n="slime_card2_badge">Engineering Discipline</span>
+                                        <h3 data-i18n="slime_card2_title">Edge Cases & Solver Refinement</h3>
+                                    </div>
+                                    <p data-i18n="slime_card2_desc">
+                                        Showed me how edge cases (slopes, corners, acute angles) can break an entire system if contact manifolds aren't mathematically watertight before writing code.
+                                    </p>
+                                </div>
+                                <div class="reflection-card color-violet-card">
+                                    <div class="reflection-card-header">
+                                        <span class="badge color-violet" data-i18n="slime_card3_badge">The Bridge to DUAL</span>
+                                        <h3 data-i18n="slime_card3_title">Direct Stepping Stone to 3D Custom Engine</h3>
+                                    </div>
+                                    <p data-i18n="slime_card3_desc">
+                                        The deep vector math and collision lessons forged in this DxLib battle gave me the exact foundation and confidence required to build my custom C++ 3D engine in DUAL.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Bottom Return Action -->
+                    <div class="modal-bottom-actions">
+                        <button type="button" class="btn btn-primary modal-back-btn-bottom" data-cursor="back">
+                            ← <span data-i18n="modal_btn_back">Back to Portfolio</span>
+                        </button>
+                    </div>
+                </article>
+
             </div>
         </div>
     </div>
     
-    <script type="module" src="background.js?v=24"></script>
-    <script type="module" src="script.js?v=24"></script>
+    <script type="module" src="background.js?v=25"></script>
+    <script type="module" src="script.js?v=25"></script>
 </body>
 </html>

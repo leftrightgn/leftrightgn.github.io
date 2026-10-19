@@ -330,6 +330,82 @@ const TRANSLATIONS = {
         aetheria_sec1_title: "Vision & Inspiration",
         aetheria_sec1_p1: "An exploration prototype heavily inspired by high-concept donghua animation and fantasy manhwa aesthetics. Built to study atmospheric environmental shaders, responsive character kinematics, and elemental spellcasting loops.",
 
+        // Homepage Card 6 (SLIME)
+        project6_title: "SLIME",
+        slime_status_badge: "🌱 1st Year Final Project • DxLib (C++)",
+        slime_status: "🌱 Completed (3-Month Dev)",
+        project6_teaser: "Inspired by Rain World, a tactile 2D ecosystem survival platformer built from scratch in C++ (DxLib) for my 1st-year final project. Master fluid slime locomotion, brave an apocalyptic nightfall countdown, consume insects to evolve new traits, and embark on a dangerous quest for the Divine Branch of immortality.",
+        btn_explore_slime: "Open SLIME Deep Dive →",
+        project6_role: "Role: Solo Developer & Systems Programmer",
+        slime_tag_project: "🌱 1st Year Final Project",
+        slime_tag_engine: "DxLib (C++)",
+        slime_tag_timeline: "3-Month Solo Dev",
+        slime_tag_inspo: "Rain World Inspiration",
+        slime_tag_daynight: "Day/Night Survival Loop",
+        slime_tag_evolution: "Prey & Evolution Mechanics",
+        slime_tag_physics: "Triangle Slope Post-Mortem",
+
+        // Modal SLIME
+        slime_eyebrow_type: "🌱 1st Year Final Project",
+        slime_eyebrow_time: "3-Month Solo Sprint",
+        slime_eyebrow_engine: "DxLib (Pure C++)",
+        slime_eyebrow_status: "Completed Game",
+        slime_modal_title: "SLIME",
+        slime_modal_subtitle: "2D Ecosystem Survival Platformer • Inspired by Rain World • Custom Triangle Slope Physics & Evolution Mechanics",
+        slime_video_badge: "🎮 Gameplay Video • DxLib In-Engine",
+        slime_modal_media_caption: "▲ Official Gameplay Demonstration: Squash-and-stretch slime locomotion, day/night cycle urgency, dynamic insect absorption evolutions, rock throwing, and mountain slope traversal.",
+        slime_meta_type_label: "Project Type",
+        slime_meta_type_val: "1st Year Final Project (3-Month Solo Sprint)",
+        slime_meta_engine_label: "Engine & Framework",
+        slime_meta_engine_val: "DxLib (Pure C++ / Custom Physics & Rendering)",
+        slime_meta_role_label: "My Role",
+        slime_meta_role_val: "Solo Developer (Gameplay, Physics, Systems & Art)",
+        slime_meta_inspo_label: "Core Inspiration",
+        slime_meta_inspo_val: "Rain World (Fluid Creature Locomotion & Living Ecosystem)",
+
+        slime_sec1_title: "The Vision: Rain World Feel & Ecosystem Survival",
+        slime_sec1_callout: "\"I have always been captivated by the organic, tactile creature movement in <strong>Rain World</strong>. For my 1st-year final project, I set out to build a complete game in C++ and DxLib featuring a character that felt genuinely alive, squishy, and dynamic—a vulnerable little slime fighting to survive against the harsh wilderness.\"",
+        slime_vision_heading: "Tactile Slime Locomotion & The Looming Shadow of Nightfall",
+        slime_vision_p1: "In <strong>SLIME</strong>, the player controls a squishy green slime exploring a dense, primeval wilderness. By applying dynamic velocity damping, landing squash, and stretching acceleration curves directly in DxLib, I gave the slime an elastic, visceral responsiveness that made simply jumping and slithering deeply satisfying.",
+        slime_vision_p2: "<strong>The Day & Night Survival Loop:</strong> The slime has a finite lifespan, tracked by the cycle counter (e.g. <code>[Cycle: 1/3]</code>). As day turns to dusk, the sun sinks and an apocalyptic wall of darkness sweeps relentlessly across the screen. No living organism can survive exposed in the dark—players must scramble back into the sanctuary of cave shelters before nightfall consumes them.",
+        slime_vision_p3: "<strong>The Quest for Immortality:</strong> Surviving the cycles is only half the battle. High in the forest canopy lies the legendary <strong>Divine Branch (神木の枝)</strong>. Navigating treacherous chasms and predators during daylight to claim the branch allows the slime to transcend its mortal cycle and become the crowned <strong>Immortal Slime</strong>!",
+
+        slime_sec2_title: "Predator-Prey Ecosystem & Dynamic Evolution",
+        slime_sec2_callout: "\"Rather than static power-ups or weapons, the slime's growth is tied directly to the food chain. By hunting and absorbing specific creatures roaming the ecosystem, the slime temporarily incorporates their biological traits to solve platforming obstacles.\"",
+        slime_evo_heading: "Insect Hunting & Adaptive Mutations",
+        slime_evo_p1: "<strong>Grasshopper (バッタ) → High-Altitude Double Jump:</strong> Catching a leaping grasshopper mutates the slime, granting high-elasticity double jumps to scale sheer mountain cliffs and outmaneuver predators.",
+        slime_evo_p2: "<strong>Beetle (甲虫) → Hardened Carapace Armor:</strong> Consuming an armored beetle coats the slime in a rock-hard defensive shell, allowing it to withstand heavy environmental damage and survive aggressive predator strikes.",
+        slime_evo_p3: "<strong>Dragonfly (トンボ) → Winged Aerial Glide & Speed:</strong> Snatching an airborne dragonfly sprouts gossamer wings on the slime's sides, unleashing high-speed aerial flight and glide mechanics across expansive caverns.",
+        slime_tools_heading: "Environmental Tools: Rock Carrying & Trajectory Hurling",
+        slime_tools_p1: "To defend against lethal threats like giant leaping frogs or trigger distant mechanisms, the slime can lift stones on its head and hurl them with parabolic velocity arcs, adding tactical defense to the survival platforming.",
+
+        slime_sec3_title: "Visual Showcase: The World of SLIME",
+        slime_gallery_card1_title: "The Encroaching Darkness",
+        slime_gallery_card1_desc: "The terrifying day/night transition: A lethal wall of absolute darkness sweeps across the stage, demanding a high-speed dash back to cave shelters.",
+        slime_gallery_card2_title: "Winged Evolution & Caverns",
+        slime_gallery_card2_desc: "Slime in winged flight after consuming a dragonfly, navigating subterranean crystal caverns and hazards.",
+        slime_gallery_card3_title: "Rock Hurling & Slopes",
+        slime_gallery_card3_desc: "Leaping with a carried stone against mountain slopes, facing off against predatory frogs and patrolling beetles.",
+        slime_gallery_card4_title: "The Immortal Slime",
+        slime_gallery_card4_desc: "Victory! Reaching the Divine Branch before time runs out, crowning the slime as the eternal Immortal Slime.",
+
+        slime_sec4_title: "The Honest Post-Mortem: What Failed & Why It Changed Everything",
+        slime_sec4_callout: "\"A complete game doesn't mean a flawless one. Building a physics engine from scratch in C++ without third-party libraries pushed me face-to-face with the hardest math in game programming. My biggest battle was slopes.\"",
+        slime_fail_heading: "The Triangle Collider & Surface Normal Crisis",
+        slime_fail_p1: "<strong>What Broke on Slopes:</strong> I wanted the terrain to feel organic and natural, so I created 45° triangle colliders in DxLib for mountain inclines. But calculating contact surface normals on non-orthogonal hypotenuses proved viciously difficult. My collider math failed to properly decompose velocity along the surface tangent (<code>V - (V · N)N</code>). When the slime hit a slope, the normal impulse blew up—the player's velocity calculation went wild, causing jittery clipping, sliding violently backwards, or launching high into the sky.",
+        slime_fail_p2: "<strong>Unrefined Rock Bouncing:</strong> The same vector math flaw plagued projectile physics. Throwing rocks onto slopes produced unnatural, glitchy bounce angles because surface normal reflection (<code>R = V - 2(V · N)N</code>) and restitution damping weren't refined enough in my custom solver.",
+        slime_learn_heading: "The Foundation for Future Mastery",
+        slime_learn_intro: "Wrestling with custom triangle colliders and normal vector projections was humbling, but it became the most transformative technical crucible of my first year:",
+        slime_card1_badge: "Physics Math",
+        slime_card1_title: "Vector Normals & Dot Products",
+        slime_card1_desc: "Taught me that 2D physics isn't just AABB bounding boxes. It forced me to master vector projections, separating axis theorem (SAT), and impulse resolution from the mathematical ground up.",
+        slime_card2_badge: "Engineering Discipline",
+        slime_card2_title: "Edge Cases & Solver Refinement",
+        slime_card2_desc: "Showed me how edge cases (slopes, corners, acute angles) can break an entire system if contact manifolds aren't mathematically watertight before writing code.",
+        slime_card3_badge: "The Bridge to DUAL",
+        slime_card3_title: "Direct Stepping Stone to 3D Custom Engine",
+        slime_card3_desc: "The deep vector math and collision lessons forged in this DxLib battle gave me the exact foundation and confidence required to build my custom C++ 3D engine in DUAL.",
+
         fail_title: "The Fail Log",
         fail_sub: "Things I broke, and what I learned.",
         fail1_header: "Error: Custom Physics Engine",
@@ -338,6 +414,9 @@ const TRANSLATIONS = {
         fail2_header: "Error: Scope Creep",
         fail2_broke: "Planned an epic fantasy RPG with 10 classes and massive lore for a 48h game jam. Finished zero playable loops.",
         fail2_learned: "Cut the scope in half, then cut it again. Nail the core gameplay loop first, then expand the world.",
+        fail3_header: "Error: Triangle Slope Normals (SLIME)",
+        fail3_broke: "Custom 45° triangle colliders in DxLib miscalculated surface normals. Character velocity went wild on slopes and rock bounces defied gravity.",
+        fail3_learned: "Slopes demand rigorous dot product projections and contact tangents. Mastering this struggle laid the vector math groundwork for my custom C++ engine in DUAL.",
         fail_what_broke: "What broke:",
         fail_what_learned: "What I learned:",
         about_title: "About Me",
@@ -678,6 +757,83 @@ const TRANSLATIONS = {
         ref_learn_item1: "<strong>理論よりゲーム本位:</strong> 純粋な設計論に固執するより、実際のゲームプレイを直感的に拡張できるハイブリッド構成こそが真に価値があると学びました。",
         ref_learn_item2: "<strong>失敗から学ぶ迅速な反復:</strong> 低レイヤーのバグを真に克服する唯一の方法は、壊してポインタを追い、より堅牢に再構築することだと知りました。",
         ref_learn_item3: "<strong>想像を現実に変える力:</strong> 壮大なファンタジー世界への情熱も、それを支える地道な技術的探求と規律があって初めてプレイ可能な現実になると実感しています。",
+
+        // Homepage Card 6 (SLIME)
+        project6_title: "SLIME",
+        slime_status_badge: "🌱 1年次修了制作 • DxLib (C++)",
+        slime_status: "🌱 3ヶ月完成作品 (ソロ開発)",
+        project6_teaser: "『Rain World』に着想を得て、専門学校1年次の修了制作としてC++（DxLib）でゼロから完全制作した2D生態系サバイバルアクション。スライム特有の触感的な伸縮挙動、迫り来る夜の闇と洞窟への帰還ループ、虫を捕食して形態変化する進化システム、そして不老不死の「神木の枝」を巡る過酷な冒険を描く。",
+        btn_explore_slime: "SLIME 制作と技術分析を見る →",
+        project6_role: "担当: ソロ開発・システム＆物理プログラマー",
+        slime_tag_project: "🌱 専門学校1年次修了制作",
+        slime_tag_engine: "DxLib (C++)",
+        slime_tag_timeline: "3ヶ月完成作品 (ソロ)",
+        slime_tag_inspo: "Rain World 着想",
+        slime_tag_daynight: "昼夜サバイバルサイクル",
+        slime_tag_evolution: "捕食・進化システム",
+        slime_tag_physics: "坂道コリジョン失敗分析",
+
+        // Modal SLIME
+        slime_eyebrow_type: "🌱 専門学校1年次修了制作",
+        slime_eyebrow_time: "3ヶ月完成作品 (ソロ開発)",
+        slime_eyebrow_engine: "DxLib (純粋C++)",
+        slime_eyebrow_status: "完全完成ゲーム",
+        slime_modal_title: "SLIME",
+        slime_modal_subtitle: "2D生態系サバイバルアクション • 『Rain World』に着想 • 三角ポリゴン坂道物理と法線ベクトルの失敗分析",
+        slime_video_badge: "🎮 実機プレイ映像 • DxLib製",
+        slime_modal_media_caption: "▲ 実機プレイ映像：スライムの伸縮移動挙動、昼夜サイクルの緊張感、虫捕食による形態変化進化、岩投げアクション、坂道地形の探索。",
+        slime_meta_type_label: "制作区分",
+        slime_meta_type_val: "専門学校1年次修了制作（3ヶ月完成・ソロ制作）",
+        slime_meta_engine_label: "使用技術",
+        slime_meta_engine_val: "DxLib（純粋C++ / 自作物理計算・描画処理）",
+        slime_meta_role_label: "担当役割",
+        slime_meta_role_val: "ソロ開発（企画・ゲームプレイ・物理・ドット絵）",
+        slime_meta_inspo_label: "着想の原点",
+        slime_meta_inspo_val: "『Rain World』（生物の有機的な挙動と生態系）",
+
+        slime_sec1_title: "設計思想：『Rain World』の触感と生態系サバイバル",
+        slime_sec1_callout: "「『Rain World』が持つ、生きているかのような有機的な生物の挙動と、過酷な生態系の美しさに強く魅了されていました。1年次の修了制作として、Unity等の既存エンジンに頼らず、C++とDxLibで『本当にスライムらしい弾力と手触りを持つ完全なゲーム』を自分の手で作り上げたいという強い想いから『SLIME』の開発を始めました。」",
+        slime_vision_heading: "スライム特有の触感挙動と迫り来る夜の闇",
+        slime_vision_p1: "本作では、プレイヤーは原生林を生きる緑のスライムを操ります。DxLib上で速度減衰・着地時の押し潰れ・跳躍時の引き伸ばし処理を自作し、触っているだけで気持ちいいスライム特有の弾力とレスポンスを追求しました。",
+        slime_vision_p2: "<strong>昼夜サバイバルループ:</strong> スライムには寿命（サイクル制限：<code>[Cycle: 1/3]</code>）が存在します。日没とともに太陽が沈むと、画面を埋め尽くす絶対的な「死の闇」が襲来。闇に呑まれた生物は生きていられず、プレイヤーは暗闇が訪れる前に洞窟のシェルターへ全力で逃げ帰らなければなりません。",
+        slime_vision_p3: "<strong>不死への道「神木の枝」:</strong> ただ生き延びるだけでは寿命は尽きてしまいます。森林の最深部に眠る伝説の<strong>「神木の枝」</strong>を日中のうちに探し出し、獲得することで寿命の枷を解き放ち、冠を戴いた<strong>「不死のスライム (Immortal Slime)」</strong>となることが究極の目標です。",
+
+        slime_sec2_title: "食物連鎖と捕食・形態進化システム",
+        slime_sec2_callout: "「単なる武器やパワーアップアイテムではなく、食物連鎖そのものを成長システムとして設計。生態系に生息する昆虫を捕食することで、その生物の身体的特徴を一時的に自らに宿し、地形を切り拓きます。」",
+        slime_evo_heading: "昆虫の捕食による適応進化",
+        slime_evo_p1: "<strong>バッタ（Grasshopper）→ 2段ジャンプ進化:</strong> 跳躍するバッタを捕食することで強い跳躍脚を獲得。一定時間、高い崖や障害物を跳び越えるハイジャンプ（2段ジャンプ）が可能になります。",
+        slime_evo_p2: "<strong>カブトムシ/甲虫（Beetle）→ 甲殻アーマー化:</strong> 硬い外骨格を持つ甲虫を捕食すると、背中に岩のような甲殻アーマーを形成。敵の重い攻撃や接触ダメージを無効化します。",
+        slime_evo_p3: "<strong>トンボ（Dragonfly）→ 飛行翼と高速滑空:</strong> 宙を舞うトンボを捕食すると、スライムの側面に羽が生え、空中を自在に高速滑空・飛行できるようになります。",
+        slime_tools_heading: "環境ギミック：岩の運搬と投擲物理",
+        slime_tools_p1: "肉食の巨大カエルなどの捕食者に対抗するため、フィールドに転がる小岩を頭上に載せて運び、放物線を描いて投げつける投擲アクションを実装。攻撃や遠隔スイッチの作動に応用できます。",
+
+        slime_sec3_title: "ビジュアルギャラリー：『SLIME』の世界",
+        slime_gallery_card1_title: "迫り来る死の夜の闇",
+        slime_gallery_card1_desc: "昼から夜への劇的な移行。生存不可能な完全な暗闇が画面を覆い尽くす前に洞窟シェルターへと疾走する。",
+        slime_gallery_card2_title: "翼の進化と水晶洞窟",
+        slime_gallery_card2_desc: "トンボを捕食して羽を生やし、地下の水晶洞窟を高速飛行して突破するスライム。",
+        slime_gallery_card3_title: "岩の投擲と斜面地形",
+        slime_gallery_card3_desc: "岩を抱えてジャンプし、坂道に潜むカエル敵や巡回する甲虫に挑むアクション。",
+        slime_gallery_card4_title: "不死のスライム（勝利）",
+        slime_gallery_card4_desc: "制限時間内に神木の枝を獲得し、黄金の王冠を戴いた不老不死のスライムへ昇華。",
+
+        slime_sec4_title: "技術的失敗分析：坂道コリジョンと法線計算の苦闘",
+        slime_sec4_callout: "「ゲームを3ヶ月で完成させた一方、物理演算を自力で書いたからこそ直面した技術的な限界と失敗がありました。最も激しい苦闘となったのが『自然な坂道地形』のコリジョン計算です。」",
+        slime_fail_heading: "三角形コリジョンと法線ベクトル計算の破綻",
+        slime_fail_p1: "<strong>斜面でのプレイヤー挙動の暴走:</strong> 自然な山道を作るため、DxLib上で45度の三角形コリジョンを自作しました。しかし、斜辺に対する接触面法線（Normal Vector）の計算が不正確だったため、接線方向への速度分解（<code>V - (V · N)N</code>）が正しく行われず、スライムが斜面に触れた瞬間に反発力が過剰に跳ね上がり、キャラクターが激しく振動したり、空高く吹き飛ぶ不具合が多発しました。",
+        slime_fail_p2: "<strong>岩の跳ね返り挙動の不自然さ:</strong> 投擲した岩を斜面にバウンドさせる反射計算（<code>R = V - 2(V · N)N</code>）も法線精度の不足により不自然な角度へ跳ねてしまい、物理挙動の磨き込み不足を痛感しました。",
+        slime_learn_heading: "最大の収穫：自作C++エンジン『DUAL』への礎",
+        slime_learn_intro: "三角形コリジョンと法線計算に打ちのめされた経験は、高校数学から線形代数・ベクトル力学を徹底的に学び直す最強の動機付けとなりました：",
+        slime_card1_badge: "ベクトル物理の体得",
+        slime_card1_title: "法線と内積の本質的理解",
+        slime_card1_desc: "単なる四角形判定（AABB）の安易さを脱し、内積による射影・分離軸判定（SAT）・接触インパルスの基礎を数学的に叩き込みました。",
+        slime_card2_badge: "エンジニアの教訓",
+        slime_card2_title: "エッジケースへの緻密さ",
+        slime_card2_desc: "斜面や角の衝突判定は、直感ではなく厳密な数学的裏付けをもって設計しなければ必ず破綻することを身をもって学びました。",
+        slime_card3_badge: "DUALへの直結",
+        slime_card3_title: "自作3Dエンジンへの確かな架け橋",
+        slime_card3_desc: "このDxLibでの泥臭い物理計算の苦闘があったからこそ、現在開発中の自作3D C++ゲームエンジン『DUAL』における3次元物理・衝突判定を自力で構築する技術的土台が完成しました。",
+
         fail_title: "失敗と学びの記録 (Fail Log)",
         fail_sub: "失敗した経験と、そこから得た教訓。",
         fail1_header: "エラー: 独自物理エンジンの罠",
@@ -686,6 +842,9 @@ const TRANSLATIONS = {
         fail2_header: "エラー: ゲームジャムでの風呂敷の広げすぎ",
         fail2_broke: "48時間のジャムで10種以上の職業を持つオープンワールドRPGを計画し、完成に至らず。",
         fail2_learned: "スコープは半分にし、さらに半分に削る。まずは確実なコアゲームループを完成させる。",
+        fail3_header: "エラー: 三角形坂道コリジョンと法線破綻 (SLIME)",
+        fail3_broke: "DxLibで自作した三角形斜面コリジョンで法線ベクトル計算が破綻。スライムが斜面で激しく暴走し、岩の反射も浮遊して不自然に。",
+        fail3_learned: "斜面物理には厳密な内積射影と接線分解が不可欠。この失敗で培ったベクトル数学が、現在の自作3D C++エンジン『DUAL』の確固たる土台となった。",
         fail_what_broke: "失敗点:",
         fail_what_learned: "学んだこと:",
         about_title: "自己紹介",
@@ -1294,6 +1453,9 @@ function openProjectModal(projectId) {
         } else if (projectId === 'balloonfight') {
             modalNavBadge.textContent = 'Balloon Fight';
             modalNavBadge.className = 'modal-nav-badge badge color-cyan';
+        } else if (projectId === 'slime') {
+            modalNavBadge.textContent = 'SLIME';
+            modalNavBadge.className = 'modal-nav-badge badge color-lime';
         }
     }
 
@@ -1328,7 +1490,7 @@ function closeProjectModal() {
 
     // Clear hash if it was a project hash
     const currentHash = window.location.hash.toLowerCase();
-    if (currentHash.startsWith('#project-') || currentHash === '#dual' || currentHash === '#meineko' || currentHash === '#tetrash' || currentHash === '#ultimamanus' || currentHash === '#balloonfight') {
+    if (currentHash.startsWith('#project-') || currentHash === '#dual' || currentHash === '#meineko' || currentHash === '#tetrash' || currentHash === '#ultimamanus' || currentHash === '#balloonfight' || currentHash === '#slime') {
         if (window.history && window.history.replaceState) {
             window.history.replaceState(null, null, window.location.pathname + window.location.search);
         } else {
@@ -1389,6 +1551,8 @@ function handleHashRoute() {
         openProjectModal('ultimamanus');
     } else if (hash === '#project-balloonfight' || hash === '#balloonfight') {
         openProjectModal('balloonfight');
+    } else if (hash === '#project-slime' || hash === '#slime') {
+        openProjectModal('slime');
     } else if (projectModal && projectModal.classList.contains('active')) {
         closeProjectModal();
     }

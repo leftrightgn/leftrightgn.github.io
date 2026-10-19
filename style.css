@@ -1593,4 +1593,52 @@ body[data-mode="locked"] .text-accent {
     }
 }
 
+/* Multi-screenshot gallery grid for project deep dives */
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.75rem 0 2.5rem 0;
+}
+.showcase-card {
+    background: var(--bg-card);
+    border: var(--border-thickness) solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 4px 4px 0 var(--border-color);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+body[data-mode="locked"] .showcase-card {
+    box-shadow: none;
+    border-color: #333333;
+}
+.showcase-card:hover {
+    transform: translateY(-4px);
+}
+.showcase-card-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    background: #000;
+    border-bottom: var(--border-thickness) solid var(--border-color);
+}
+.showcase-card-body {
+    padding: 1.1rem 1.25rem;
+}
+.showcase-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.showcase-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    opacity: 0.85;
+}
+
+
 
